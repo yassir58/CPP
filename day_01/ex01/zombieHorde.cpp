@@ -4,7 +4,7 @@ Zombie* zombieHorde( int N, std::string name )
 {
 	Zombie *zombieHorde ;
 
-	try 
+	try
 	{
 		zombieHorde = new Zombie[N];
 	}
@@ -12,11 +12,7 @@ Zombie* zombieHorde( int N, std::string name )
 	{
 		std::cout<<"Allocation failed"<<std::endl;
 	}
-	(void)name;
 	for (int i = 0; i < N; i++)
-	{
-		std::cout<<&zombieHorde[i]<<' ' <<zombieHorde <<std::endl;
-		zombieHorde[i].setName(std::to_string(i));
-	}
+		zombieHorde[i].setName(name);
 	return (zombieHorde);
 }

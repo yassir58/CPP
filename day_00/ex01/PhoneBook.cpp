@@ -33,25 +33,25 @@ Contact create_contact (int index)
 	Contact contact;
 
 	contact.indx = index;
-	while (!strcmp(contact.first_name.c_str(), ""))
+	while (!strcmp(contact.first_name.c_str(), "") && !std::cin.eof())
 		std::cout<<"first name: ", getline (std::cin, contact.first_name);
-	while (!strcmp (contact.last_name.c_str(), ""))
+	while (!strcmp (contact.last_name.c_str(), "") && !std::cin.eof())
 		std::cout<<"last name: " , getline (std::cin, contact.last_name);
-	while (!strcmp (contact.phone_number.c_str(), ""))
+	while (!strcmp (contact.phone_number.c_str(), "") && !std::cin.eof())
 		std::cout<<"phone number: ", getline (std::cin, contact.phone_number);
-	while (!strcmp (contact.darkest_secret.c_str(), ""))
+	while (!strcmp (contact.darkest_secret.c_str(), "") && !std::cin.eof())
 		std::cout<<"darkest secret: ", getline (std::cin, contact.darkest_secret);
-	while (!strcmp (contact.nickname.c_str(), ""))
+	while (!strcmp (contact.nickname.c_str(), "") && !std::cin.eof())
 		std::cout<<"nickname: ", getline (std::cin, contact.nickname);
 	return (contact);
 }
 
 void print_contact (Contact contact)
 {
-	std::cout<<"|", std::cout<<contact.indx;
-	std::cout<<"|", std::cout<< (contact.first_name.length() < 10 ? contact.first_name:contact.first_name.substr(0, 9)+ ".");
-	std::cout<<"|", std::cout<<(contact.last_name.length() < 10 ? contact.last_name:contact.last_name.substr(0, 9)+ ".");
-	std::cout<<"|", std::cout<<(contact.nickname.length() < 10 ? contact.nickname:contact.nickname.substr(0, 9) + ".");
+	std::cout<<"|", std::cout<< std::setw(10) <<contact.indx;
+	std::cout<<"|", std::cout<< std::setw(10) << (contact.first_name.length() < 10 ? contact.first_name:contact.first_name.substr(0, 9)+ ".");
+	std::cout<<"|", std::cout<<  std::setw(10)<< (contact.last_name.length() < 10 ? contact.last_name:contact.last_name.substr(0, 9)+ ".");
+	std::cout<<"|", std::cout<< std::setw(10) << (contact.nickname.length() < 10 ? contact.nickname:contact.nickname.substr(0, 9) + ".");
 	std::cout<<"|"<<std::endl;
 }
 
