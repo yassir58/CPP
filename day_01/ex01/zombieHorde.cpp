@@ -1,5 +1,11 @@
 #include "Zombie.hpp"
 
+Zombie* newZombie( std::string name )
+{
+	Zombie *zombie = new Zombie(name);
+	return (zombie);
+}
+
 Zombie* zombieHorde( int N, std::string name )
 {
 	Zombie *zombieHorde ;
@@ -13,6 +19,6 @@ Zombie* zombieHorde( int N, std::string name )
 		std::cout<<"Allocation failed"<<std::endl;
 	}
 	for (int i = 0; i < N; i++)
-		zombieHorde[i].setName(name);
+		zombieHorde[i] = *(newZombie (name));
 	return (zombieHorde);
 }
