@@ -8,5 +8,4 @@
 
 std::string getFileContent (char *file_name);
 std::string replace (std::string str, std::string pattern, std::string rep);
-
 #endif

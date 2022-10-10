@@ -22,6 +22,12 @@ Weapon::Weapon(std::string type)
 	this->type = type;
 }
 
+Weapon::Weapon (int *type)
+{
+	(void)type;
+	this->type = "default";
+}
+
 Weapon::~Weapon ()
 {
 	std::cout<<"destroying Weapon "<<std::endl;
