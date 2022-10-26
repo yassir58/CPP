@@ -6,16 +6,21 @@
 
 class Animal
 {
+	private:
+		std::string type;
 	public:
 		// Constructors
 		Animal();
 		Animal(const Animal &copy);
 		
 		// Destructor
-		~Animal();
+		virtual ~Animal();
 		
 		// Operators
 		Animal & operator=(const Animal &assign);
+		// member functions
+		virtual void makeSound (void) const;
+		std::string getType (void) const;
 		
 	private:
 		

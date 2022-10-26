@@ -3,6 +3,7 @@
 // Constructors
 Animal::Animal()
 {
+	this->type = "ordinary animal";
 	std::cout << "\e[0;33mDefault Constructor called of Animal\e[0m" << std::endl;
 }
 
@@ -27,3 +28,13 @@ Animal & Animal::operator=(const Animal &assign)
 	return *this;
 }
 
+void Animal::makeSound (void) const
+{
+	std::cout << "Generic animal sound " << std::endl;
+}
+
+
+std::string Animal::getType (void) const
+{
+	return (this->type);
+}

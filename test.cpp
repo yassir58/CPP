@@ -56,6 +56,47 @@ void func ()
 		std::cout << "this is default func" << std::endl; 
 }
 
+
+
+class Bird 
+{
+	std::string name;
+	int age;
+	public :
+		void sayHi (void)
+		{
+			std::cout << "hello world" << std::endl;
+			std::cout << this->name << std::endl;
+			std::cout << this->age << std::endl;
+		}
+	Bird ():name ("frida"), age (20)
+	{
+
+	}
+	Bird (std::string name, int age):name (name), age (age)
+	{
+	}
+};
+
+class Chiken : public Bird
+{
+	std::string name;
+	int age;
+	int road_crossed;
+	public:
+		std::string religion;
+		void greet ()
+		{
+			std::cout << "hi good by" << std::endl;
+			std::cout << this->name << std::endl;
+			std::cout << this->age << std::endl;
+			std::cout << this->road_crossed << std::endl;
+		}
+	Chiken (std::string name, int age):name (name), age (age), road_crossed (0), religion("muslim")
+	{
+	}
+};
+
 int main ()
 {
 
@@ -63,22 +104,35 @@ int main ()
 	// secondScope::func ();
 	// Test a;
 
-	// std::cout << a.getA (45) << std::endl;
-	// func ();
+	// // std::cout << a.getA (45) << std::endl;
+	// // func ();
 
-	int x = 45;
-	int &ref = x;
-	double a = 0.1f;
-	double b = 0.2f;
-	double c = 0.3f;
+	// int x = 45;
+	// int &ref = x;
+	// double a = 0.1f;
+	// double b = 0.2f;
+	// double c = 0.3f;
 
-	ref++;
+	// ref++;
 
-	std::cout << &x << " : " << &ref << std::endl;
-	std::cout << x << std::endl ;
-	std::cout << a << " " <<  b << " " << c << std::endl;
-	std::cout << a + b + c << std::endl;
-	std::cout << (1 << 8) << std::endl;
-	std::cout << sizeof (Test) << std::endl;
-	std::cout << sizeof (std::string) << std::endl;
+	// std::cout << &x << " : " << &ref << std::endl;
+	// std::cout << x << std::endl ;
+	// std::cout << a << " " <<  b << " " << c << std::endl;
+	// std::cout << a + b + c << std::endl;
+	// std::cout << (1 << 8) << std::endl;
+	// std::cout << sizeof (Test) << std::endl;
+	// std::cout << sizeof (std::string) << std::endl;
+
+	Chiken frida = Chiken ("tach", 10);
+
+	Bird  *tachChiken = &frida;
+
+	std::cout << "_______________ chiken _____________________";
+	std::cout << frida.religion << std::endl;
+	frida.greet ();
+	
+	std::cout << "_______________ Bird _____________________";
+	tachChiken->sayHi ();
+	std::cout << tachChiken->religion << std::endl;
+	//std::cout << tachChiken.religion << std::endl; 
 }

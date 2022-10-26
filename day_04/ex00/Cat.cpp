@@ -1,14 +1,14 @@
 #include "Cat.hpp"
 
 // Constructors
-Cat::Cat()
+Cat::Cat():type("Cat")
 {
 	std::cout << "\e[0;33mDefault Constructor called of Cat\e[0m" << std::endl;
 }
 
-Cat::Cat(const Cat &copy)
+Cat::Cat(const Cat &copy):Animal ()
 {
-	(void) copy;
+	this->type = copy.type ;
 	std::cout << "\e[0;33mCopy Constructor called of Cat\e[0m" << std::endl;
 }
 
@@ -23,7 +23,11 @@ Cat::~Cat()
 // Operators
 Cat & Cat::operator=(const Cat &assign)
 {
-	(void) assign;
+	this->type = assign.type;
 	return *this;
 }
 
+void Cat::makeSound (void) const 
+{
+	std::cout << "meyoooooooow" << std::endl;
+}
