@@ -19,6 +19,6 @@ Zombie* zombieHorde( int N, std::string name )
 		std::cout<<"Allocation failed"<<std::endl;
 	}
 	for (int i = 0; i < N; i++)
-		zombieHorde[i] = *(newZombie (name));
+		zombieHorde[i].setName (name);
 	return (zombieHorde);
 }

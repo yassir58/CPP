@@ -1,12 +1,12 @@
 #include "ClapTrap.hpp"
-#include "fragTrap.hpp"
+#include "FragTrap.hpp"
 
 
 
 int main (void)
 {
 
-	fragTrap Scv("farg");
+	FragTrap Scv("farg");
 
 	Scv.attack ("ScavTrap");
 	Scv.takeDamage (15);

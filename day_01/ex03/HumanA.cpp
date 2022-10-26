@@ -4,19 +4,14 @@
 
 void HumanA::attack (void)
 {
-	std::cout<<this->name<< " attacks with their "<<this->weapon->getType ()<<std::endl;
+	std::cout<<this->name<< " attacks with their "<<this->weapon.getType ()<<std::endl;
 }
 
-HumanA::HumanA(std::string name, Weapon *weapon)
+HumanA::HumanA (std::string name, Weapon &weapon):weapon (weapon)
 {
 	this->name = name;
-	this->weapon =  weapon;
-}
+};
 
-HumanA::HumanA()
-{
-	std::cout << "Constructing HumanA " << std::endl;
-}
 
 HumanA::~HumanA()
 {

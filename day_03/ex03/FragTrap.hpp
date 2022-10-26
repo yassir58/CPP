@@ -4,18 +4,20 @@
 
 #include "ClapTrap.hpp"
 
-class fragTrap: virtual public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
+
 	public:
-		void gaurdGate (void);
+		FragTrap (void);
+		FragTrap (std::string name);
+		FragTrap (FragTrap const &other);
+		FragTrap &operator= (FragTrap const &other);
+		virtual ~FragTrap (void);
 	public:
-		fragTrap (void);
-		fragTrap (std::string name);
-		fragTrap (fragTrap const &other);
-		fragTrap &operator= (fragTrap const &other);
-		~fragTrap (void);
-		public:
 		void highFivesGuys(void);
+		virtual void attack (const std::string &target);
+	static const int hp = 100;
+	static const int ad = 30;
 };
 
 

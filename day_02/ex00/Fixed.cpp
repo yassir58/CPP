@@ -14,18 +14,18 @@ void Fixed::setRawBits (int value)
 
 Fixed::Fixed ()
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "\e[0;33mDefault constructor called\e[0m" << std::endl;
 	this->setRawBits (0);
 }
 
 Fixed::~Fixed ()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "\e[0;31mDestructor called\e[0m" << std::endl;
 }
 
 Fixed::Fixed (const Fixed &other)
 {
-	std::cout<<"Copy constructor called"<<std::endl;
+	std::cout<<"\e[0;34mCopy constructor called\e[0m"<<std::endl;
 	if (this != &other)
 		this->value = other.getRawBits ();
 }
@@ -33,7 +33,7 @@ Fixed::Fixed (const Fixed &other)
 
 Fixed& Fixed::operator= (const Fixed &other)
 {
-	std::cout<<"Copy assignment operator called"<<std::endl;
+	std::cout<<"\e[0;34mCopy assignment operator called\e[0m"<<std::endl;
 	if (this != &other)
 		this->value = other.getRawBits ();
 	return (*this);

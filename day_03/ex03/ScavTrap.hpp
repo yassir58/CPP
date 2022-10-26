@@ -7,15 +7,14 @@
 class ScavTrap: virtual public ClapTrap
 {
 	public:
-		void gaurdGate (void);
-	public:
 		ScavTrap (void);
 		ScavTrap (std::string name);
 		ScavTrap (ScavTrap const &other);
 		ScavTrap &operator= (ScavTrap const &other);
-		~ScavTrap (void);
+		virtual ~ScavTrap (void);
+	public:
+		void attack (const std::string &target);
+		void gaurdGate (void);
+	static const int ep = 50;
 };
-
-
-
 #endif

@@ -1,49 +1,52 @@
-#include "fragTrap.hpp"
+#include "FragTrap.hpp"
 
-fragTrap::fragTrap (void)
+FragTrap::FragTrap (void)
 {
-	std::cout << "fragTrap Constructor" << std::endl;
-	this->name = "Default fragTrap";
-	this->hitPoints = 100;
-	this->attackDamage = 30;
-	this->energyPoints = 100;
+	std::cout << "\e[0;33mFragTrap Constructor\e[0m" << std::endl;
+	
 }
 
-fragTrap::fragTrap (std::string name)
+FragTrap::FragTrap (std::string name)
 {
-	std::cout << "fragTrap Parameter Constructor" << std::endl;
+	std::cout << "\e[0;32mFragTrap Parameter Constructor\e[0m" << std::endl;
 	this->name = name;
 	this->hitPoints = 100;
-	this->attackDamage = 30;
 	this->energyPoints = 100;
+	this->attackDamage = 30;
 }
 
-fragTrap::~fragTrap (void)
+FragTrap::~FragTrap (void)
 {
-	std::cout << "fragTrap destructor" << std::endl;
+	std::cout << "\e[0;31mFragTrap destructor\e[0m" << std::endl;
 }
 
-fragTrap::fragTrap (fragTrap const &other)
+FragTrap::FragTrap (FragTrap const &other)
 {
-	std::cout << "fragTrap Copy Constructor" << std::endl;
+	std::cout << "\e[0;32mFragTrap Copy Constructor\e[0m" << std::endl;
 	this->name = other.name;
-	this->hitPoints = other.hitPoints;
-	this->attackDamage = other.attackDamage;
-	this->energyPoints = other.energyPoints;
 }
 
-fragTrap &fragTrap::operator=(fragTrap const &other)
+FragTrap &FragTrap::operator=(FragTrap const &other)
 {
 	std::cout << "frageTrap Copy assignement Constructor" << std::endl;
 	this->name = other.name;
-	this->hitPoints = other.hitPoints;
-	this->attackDamage = other.attackDamage;
-	this->energyPoints = other.energyPoints;
 	return (*this);
 }
 
 
-void fragTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys(void)
 {
-	std::cout << "fragTrap " << this->name << " wants to high Five you " << std::endl; 
+	std::cout << "FragTrap " << this->name << " wants to high Five you " << std::endl; 
+}
+
+void FragTrap::attack (const std::string &target)
+{
+	if (this->energyPoints > 0)
+	{
+		std::cout << "FragTrap : " << this->name << " attacks " << target << " causing " << this->attackDamage \
+		<< " points of damage " << std::endl;
+		this->energyPoints--;
+	}
+	else
+		std::cout << "FragpTrap : " << this->name << " has no energie" << std::endl;
 }

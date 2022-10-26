@@ -19,13 +19,14 @@ void Weapon::setType (std::string type)
 
 Weapon::Weapon(std::string type)
 {
+	std::cout << "Constructing and initializing Weapon" << std::endl;
 	this->type = type;
 }
 
 Weapon::Weapon (int *type)
 {
 	(void)type;
-	this->type = "default";
+	this->type = "default weapon";
 }
 
 Weapon::~Weapon ()

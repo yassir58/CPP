@@ -5,7 +5,7 @@ CPP=c++
 NAME=./exec
 HEADERS=HumanA.hpp HumanB.hpp Weapon.hpp
 
-%.o:%.cpp
+%.o:%.cpp $(HEADERS)
 	$(CPP) $(CP_FLAGS) -c $< -o $@
 
 all:$(NAME)

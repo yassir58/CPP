@@ -1,7 +1,7 @@
 #include "replace.hpp"
 
 
-std::string getFileContent (char *file_name)
+std::string getFileContent (std::string file_name)
 {
 	std::string str = "";
 	std::string line;

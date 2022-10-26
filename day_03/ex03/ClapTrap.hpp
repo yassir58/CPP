@@ -10,12 +10,13 @@ class ClapTrap
 		int hitPoints;
 		int energyPoints;
 		int attackDamage;
+		
 	public:
 		ClapTrap (void);
 		ClapTrap (std::string name);
 		ClapTrap (ClapTrap const &other);
 		ClapTrap &operator= (ClapTrap const &other);
-		~ClapTrap (void);
+		virtual ~ClapTrap (void);
 
 	public:
 		void attack(const std::string& target);
@@ -23,6 +24,5 @@ class ClapTrap
 		void beRepaired(unsigned int amount);
 
 };
-
 
 #endif

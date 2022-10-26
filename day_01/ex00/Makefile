@@ -5,7 +5,7 @@ CPP=c++
 NAME=./zombie
 HEADER=Zombie.hpp
 
-%.o:%.cpp
+%.o:%.cpp $(HEADER)
 	$(CPP) $(CP_FLAGS) -c $< -o $@
 
 all:$(NAME)

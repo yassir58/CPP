@@ -4,7 +4,7 @@ CP_FLAGS= -Wall -Wextra -Werror -std=c++98
 CPP=c++
 NAME=./exec
 HEADER=Fixed.hpp
-%.o:%.cpp
+%.o:%.cpp $(HEADER)
 	$(CPP) $(CP_FLAGS) -c $< -o $@
 
 all:$(NAME)

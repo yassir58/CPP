@@ -4,16 +4,16 @@
 
 #include "ClapTrap.hpp"
 
-class fragTrap: public ClapTrap
+class FragTrap: public ClapTrap
 {
 	public:
 		void gaurdGate (void);
 	public:
-		fragTrap (void);
-		fragTrap (std::string name);
-		fragTrap (fragTrap const &other);
-		fragTrap &operator= (fragTrap const &other);
-		~fragTrap (void);
+		FragTrap (void);
+		FragTrap (std::string name);
+		FragTrap (FragTrap const &other);
+		FragTrap &operator= (FragTrap const &other);
+		~FragTrap (void);
 		public:
 		void highFivesGuys(void);
 };

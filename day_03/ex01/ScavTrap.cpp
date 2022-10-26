@@ -4,9 +4,7 @@ ScavTrap::ScavTrap (void)
 {
 	std::cout << "ScavTrap Constructor" << std::endl;
 	this->name = "Default ScavTrap";
-	this->hitPoints = 100;
-	this->attackDamage = 20;
-	this->energyPoints = 50;
+	
 }
 
 ScavTrap::ScavTrap (std::string name)
@@ -14,8 +12,9 @@ ScavTrap::ScavTrap (std::string name)
 	std::cout << "ScavTrap Parameter Constructor" << std::endl;
 	this->name = name;
 	this->hitPoints = 100;
-	this->attackDamage = 20;
 	this->energyPoints = 50;
+	this->attackDamage = 20;
+
 }
 
 ScavTrap::~ScavTrap (void)
