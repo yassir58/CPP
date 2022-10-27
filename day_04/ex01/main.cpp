@@ -10,6 +10,14 @@ int main (void)
 {
     Animal *animals[10] ;
 
+	// * * copied using deep copy
+	Cat A = Cat ();
+	Cat B = Cat (A);
+	// example of shallow copy
+	// WrongCat i = WrongCat ();
+	// WrongCat j = WrongCat (i);
+
+
     for  (int i = 0; i < 10;i++)
     {
         if (i < 5)

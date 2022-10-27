@@ -1,15 +1,16 @@
 #include "Dog.hpp"
 
+
 // Constructors
-Dog::Dog()
+Dog::Dog():type ("Dog")
 {
 	std::cout << "\e[0;33mDefault Constructor called of Dog\e[0m" << std::endl;
 }
 
-Dog::Dog(const Dog &copy)
+Dog::Dog(const Dog &copy):Animal_A ()
 {
-	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of Dog\e[0m" << std::endl;
+	std::cout << "\e[0;32mCopy Constructor called of Dog\e[0m" << std::endl;
+	this->type = copy.type;
 }
 
 
@@ -23,7 +24,11 @@ Dog::~Dog()
 // Operators
 Dog & Dog::operator=(const Dog &assign)
 {
-	(void) assign;
+	this->type = assign.type;
 	return *this;
 }
 
+void Dog::makeSound (void) const 
+{
+	std::cout << "woof woof" << std::endl;
+}

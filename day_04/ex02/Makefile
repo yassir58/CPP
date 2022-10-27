@@ -1,4 +1,4 @@
-SRC=Animal.cpp Cat.cpp Dog.cpp 
+SRC=Animal_A.cpp Cat.cpp Dog.cpp main.cpp 
 OBJS=$(SRC:.cpp=.o)
 CP_FLAGS= -Wall -Wextra -Werror -std=c++98
 CPP=c++

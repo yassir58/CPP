@@ -10,8 +10,9 @@ Dog::Dog():type ("Dog")
 
 Dog::Dog(const Dog &copy):Animal ()
 {
+	std::cout << "\e[0;32mCopy Constructor called of Dog\e[0m" << std::endl;
 	this->type = copy.type;
-	std::cout << "\e[0;33mCopy Constructor called of Dog\e[0m" << std::endl;
+	this->brain = new Brain ();
 }
 
 

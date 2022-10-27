@@ -3,9 +3,13 @@
 
 # include <iostream>
 # include <string>
+# include "Animal_A.hpp"
 
-class Dog
+
+class Dog : public Animal_A
 {
+	private:
+		std::string type;
 	public:
 		// Constructors
 		Dog();
@@ -16,8 +20,8 @@ class Dog
 		
 		// Operators
 		Dog & operator=(const Dog &assign);
+		void makeSound (void) const;
 		
-	private:
 		
 };
 

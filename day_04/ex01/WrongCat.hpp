@@ -3,16 +3,18 @@
 
 # include <iostream>
 # include <string>
-#include "WrongAnimal.hpp"
+# include "WrongAnimal.hpp"
+# include "Brain.hpp"
+
 
 class WrongCat: public WrongAnimal
 {
 	private:
 		std::string type;
+		Brain *brain;
 	public:
 		// Constructors
 		WrongCat();
-		WrongCat(const WrongCat &copy);
 		
 		// Destructor
 		~WrongCat();
