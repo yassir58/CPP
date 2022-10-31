@@ -97,7 +97,7 @@ int main ()
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 	
-	std::cout << " ____________ comparison operators tests _________________ " << std::endl;
+	std::cout << "\e[0;32m ____________ comparison operators tests _________________ \e[0;m" << std::endl;
 	test_equality (Fixed (48.4822f) , Fixed (48.4823f));
 	test_equality (Fixed (0), Fixed (0.00000f));
 	test_equality (Fixed (0), Fixed (0.00001f));
@@ -113,7 +113,7 @@ int main ()
 	test_lte (Fixed (0.924f), Fixed (0.458f));
 	test_bt ( Fixed (48.4822f), Fixed (48));
 	test_bte ( Fixed (49), Fixed (48));
-	std::cout << " ____________ arithmitic operators tests _________________ " << std::endl;
+	std::cout << "\e[0;32m ____________ arithmitic operators tests _________________ \e[0;m" << std::endl;
 	ar_plus_test (Fixed (2), Fixed (2), Fixed (4));
 	ar_plus_test (Fixed (4), Fixed (6), Fixed (10.00f));
 	ar_plus_test (Fixed (2), Fixed (2.0000f), Fixed (4));

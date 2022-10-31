@@ -3,7 +3,6 @@
 FragTrap::FragTrap (void)
 {
 	std::cout << "\e[0;33mFragTrap Constructor\e[0m" << std::endl;
-	
 }
 
 FragTrap::FragTrap (std::string name)
@@ -28,7 +27,7 @@ FragTrap::FragTrap (FragTrap const &other)
 
 FragTrap &FragTrap::operator=(FragTrap const &other)
 {
-	std::cout << "frageTrap Copy assignement Constructor" << std::endl;
+	std::cout << "FrageTrap Copy assignement Constructor" << std::endl;
 	this->name = other.name;
 	return (*this);
 }

@@ -25,7 +25,7 @@ Fixed::~Fixed ()
 
 Fixed::Fixed (const Fixed &other)
 {
-	std::cout<<"\e[0;34mCopy constructor called\e[0m"<<std::endl;
+	std::cout<<"\e[0;32mCopy constructor called\e[0m"<<std::endl;
 	if (this != &other)
 		this->value = other.getRawBits ();
 }
@@ -33,7 +33,7 @@ Fixed::Fixed (const Fixed &other)
 
 Fixed& Fixed::operator= (const Fixed &other)
 {
-	std::cout<<"\e[0;34mCopy assignment operator called\e[0m"<<std::endl;
+	std::cout<<"\e[0;32mCopy assignment operator called\e[0m"<<std::endl;
 	if (this != &other)
 		this->value = other.getRawBits ();
 	return (*this);

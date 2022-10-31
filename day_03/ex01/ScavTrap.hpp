@@ -14,7 +14,8 @@ class ScavTrap: public ClapTrap
 		ScavTrap (ScavTrap const &other);
 		ScavTrap &operator= (ScavTrap const &other);
 		~ScavTrap (void);
-	static const int ep = 50;
+	
+	void attack (const std::string &target);
 };
 
 

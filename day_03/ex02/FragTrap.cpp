@@ -2,7 +2,7 @@
 
 FragTrap::FragTrap (void)
 {
-	std::cout << "FragTrap Constructor" << std::endl;
+	std::cout << "\e[0;33mFragTrap Constructor\e[0m" << std::endl;
 	this->name = "Default FragTrap";
 	this->hitPoints = 100;
 	this->attackDamage = 30;
@@ -11,7 +11,7 @@ FragTrap::FragTrap (void)
 
 FragTrap::FragTrap (std::string name)
 {
-	std::cout << "FragTrap Parameter Constructor" << std::endl;
+	std::cout << "\e[0;32mFragTrap Parameter Constructor\e[0m" << std::endl;
 	this->name = name;
 	this->hitPoints = 100;
 	this->attackDamage = 30;
@@ -20,12 +20,12 @@ FragTrap::FragTrap (std::string name)
 
 FragTrap::~FragTrap (void)
 {
-	std::cout << "FragTrap destructor" << std::endl;
+	std::cout << "\e[0;31mFragTrap destructor\e[0m" << std::endl;
 }
 
 FragTrap::FragTrap (FragTrap const &other)
 {
-	std::cout << "FragTrap Copy Constructor" << std::endl;
+	std::cout << "\e[0;33mFragTrap Copy Constructor\e[0m" << std::endl;
 	this->name = other.name;
 	this->hitPoints = other.hitPoints;
 	this->attackDamage = other.attackDamage;
@@ -34,7 +34,7 @@ FragTrap::FragTrap (FragTrap const &other)
 
 FragTrap &FragTrap::operator=(FragTrap const &other)
 {
-	std::cout << "frageTrap Copy assignement Constructor" << std::endl;
+	std::cout << "\e[0;33mFrageTrap Copy assignement Constructor\e[0m" << std::endl;
 	this->name = other.name;
 	this->hitPoints = other.hitPoints;
 	this->attackDamage = other.attackDamage;
@@ -42,6 +42,17 @@ FragTrap &FragTrap::operator=(FragTrap const &other)
 	return (*this);
 }
 
+void FragTrap::attack (const std::string &target)
+{
+	if (this->energyPoints > 0)
+	{
+		std::cout << "FragTrap : " << this->name << " attacks " << target << " causing " << this->attackDamage \
+		<< " points of damage " << std::endl;
+		this->energyPoints--;
+	}
+	else
+		std::cout << "FragpTrap : " << this->name << " has no energie" << std::endl;
+}
 
 void FragTrap::highFivesGuys(void)
 {

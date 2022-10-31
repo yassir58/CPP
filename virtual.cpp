@@ -95,8 +95,7 @@ void establishConnection (Protocol *d)
 
 int main ()
 {
-	Tcp tcp("TCP", 41515);
-	Protocol *base = &tcp;
-	std::cout << base->getName() << std::endl;
-	std::cout << base->getId () << std::endl;
+	Protocol *newDhcp = new Dhcp ();
+	
+	delete newDhcp;
 }

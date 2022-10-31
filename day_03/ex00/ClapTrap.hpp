@@ -16,13 +16,10 @@ class ClapTrap
 		ClapTrap (ClapTrap const &other);
 		ClapTrap &operator= (ClapTrap const &other);
 		~ClapTrap (void);
-
 	public:
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-
 };
-
 
 #endif

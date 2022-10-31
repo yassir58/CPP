@@ -3,7 +3,6 @@
 ScavTrap::ScavTrap (void)
 {
 	std::cout << "\e[0;33mScavTrap Constructor\e[0m" << std::endl;
-
 }
 
 ScavTrap::ScavTrap (std::string name)
@@ -13,7 +12,6 @@ ScavTrap::ScavTrap (std::string name)
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
-	
 }
 
 ScavTrap::~ScavTrap (void)

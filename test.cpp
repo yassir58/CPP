@@ -133,6 +133,6 @@ int main ()
 	
 	std::cout << "_______________ Bird _____________________";
 	tachChiken->sayHi ();
-	std::cout << tachChiken->religion << std::endl;
+	// std::cout << tachChiken->religion << std::endl;
 	//std::cout << tachChiken.religion << std::endl; 
 }

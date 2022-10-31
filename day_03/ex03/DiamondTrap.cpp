@@ -40,8 +40,6 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other)
 	return (*this);
 }
 
-// * * for testing purpose 
-
 void DiamondTrap::whoAmI (void)const
 {
 	std::cout << "\e[0;33mDiamondTrap name : \e[0m" << this->name << std::endl;

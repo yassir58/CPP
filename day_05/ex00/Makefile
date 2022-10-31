@@ -1,10 +1,10 @@
-SRC=Fixed.cpp  main.cpp
+SRC=Bureaucrat.cpp main.cpp
 OBJS=$(SRC:.cpp=.o)
 CP_FLAGS= -Wall -Wextra -Werror -std=c++98
 CPP=c++
 NAME=./exec
-HEADER=Fixed.hpp
-%.o:%.cpp $(HEADER)
+HEADER=Bureaucrat.hpp
+%.o:%.cpp 
 	$(CPP) $(CP_FLAGS) -c $< -o $@
 
 all:$(NAME)
