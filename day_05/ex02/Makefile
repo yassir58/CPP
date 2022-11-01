@@ -1,9 +1,9 @@
-SRC=Bureaucrat.cpp main.cpp Form.cpp
+SRC=Bureaucrat.cpp main.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp   ShrubberyCreationForm.cpp 
 OBJS=$(SRC:.cpp=.o)
 CP_FLAGS= -Wall -Wextra -Werror -std=c++98
 CPP=c++
 NAME=./exec
-HEADER=Bureaucrat.hpp Form.hpp
+HEADER=Bureaucrat.hpp Form.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
 %.o:%.cpp 
 	$(CPP) $(CP_FLAGS) -c $< -o $@
 

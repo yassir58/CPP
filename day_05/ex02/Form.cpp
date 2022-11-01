@@ -7,9 +7,9 @@ Form::Form():__name ("Default form"), __formSigned(false), __signGrade(1), __exe
 	std::cout << "\e[0;33mDefault Constructor called of Form\e[0m" << std::endl;
 }
 
-Form::Form(std::string const &name, int const signGrade, int const executeGrade):__name (name), __formSigned(false), __signGrade(1), __executeGrade(1) 
+Form::Form(std::string const &name, int const signGrade, int const executeGrade):__name (name), __formSigned(false), __signGrade(signGrade), __executeGrade(executeGrade) 
 {
-	std::cout << "\e[0;33mParameter Constructor called of Form\e[0m" << std::endl;
+	std::cout << "\e[0;32mParameter Constructor called of Form\e[0m" << std::endl;
 	if (signGrade < 1 || executeGrade < 1)
 		throw Form::tooLow;
 	else if (signGrade > 150 || executeGrade > 150)
@@ -70,7 +70,7 @@ std::ostream &operator<< (std::ostream &o, Form &fr)
 }
 
 
-void Form::beSigned (Bureaucrat &br)
+void Form::beSigned (Bureaucrat const &br)
 {
 	if (br.getGrade () <= this->getSignGrade ())
 		this->__formSigned = true ;

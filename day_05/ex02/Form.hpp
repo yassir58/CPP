@@ -29,8 +29,9 @@ class Form
 		bool checkIfSigned (void) const;
 		int getSignGrade (void) const;
 		int getExecuteGrade (void) const ;
+		virtual void execute(Bureaucrat const & executor) const = 0;
 
-		void beSigned (Bureaucrat &br);
+		void beSigned (Bureaucrat const &br);
 		GradeTooHighException tooHigh;
 		GradeTooLowException tooLow;
 		
