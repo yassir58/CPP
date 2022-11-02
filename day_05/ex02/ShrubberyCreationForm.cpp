@@ -47,13 +47,13 @@ void ShrubberyCreationForm::execute (Bureaucrat const & executor) const
 			out_file << "    # #### ####	" << std::endl;
 			out_file << "   ###|### |/####	" << std::endl;
 			out_file << "  ##//##/_/##/_###" << std::endl;
-			out_file << "  #####|/ ||## #####" << std::endl;
-			out_file << "  ####### | #/###_/_####" << std::endl;
-			out_file << " ####### #|/#### ##/##" << std::endl;
+			out_file << "  ###/-##|/ ||## #####" << std::endl;
+			out_file << "  ####/-### | #/###_/_####" << std::endl;
+			out_file << " ####//-### #|/#### ##/##" << std::endl;
 			out_file << "#######_###|{,######-~###" << std::endl;
-			out_file << "        }{" << std::endl;
-			out_file << "        }{" << std::endl;
-			out_file << "        }{" << std::endl;
+			out_file << "            }{" << std::endl;
+			out_file << "            }{" << std::endl;
+			out_file << "            }{" << std::endl;
 		}
 		else
 			throw this->tooLow;

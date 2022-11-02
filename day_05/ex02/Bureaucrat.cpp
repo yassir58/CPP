@@ -92,3 +92,18 @@ void Bureaucrat::signForm (std::string name, bool sign)
 		std::cout << this->getName () << " couldn't sign " << name << " because grade was to low" << std::endl;
 }
 
+
+
+void Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Error: " << e.what() << '\n';
+		return ;
+	}
+	std::cout << this->getName() << " executed " << form.getName() << std::endl;
+}

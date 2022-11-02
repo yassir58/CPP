@@ -4,7 +4,6 @@
 # include <iostream>
 # include <string>
 
-
 class GradeTooHighException: public std::exception 
 {
 	virtual const char* what() const throw();
@@ -13,6 +12,8 @@ class GradeTooLowException: public std::exception
 {
 	virtual const char* what(void) const throw();
 };
+
+class Form;
 
 class Bureaucrat
 {
@@ -31,7 +32,7 @@ class Bureaucrat
 		void incrementGrade (void);
 		void decrementGrade (void);
 		void signForm (std::string name, bool sign);
-		
+		void executeForm(Form const & form) ;
 
 		GradeTooHighException tooHigh;
 		GradeTooLowException tooLow;
