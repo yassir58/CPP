@@ -1,10 +1,10 @@
-SRC=Animal.cpp Cat.cpp Dog.cpp 
+SRC=Bureaucrat.cpp main.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp   ShrubberyCreationForm.cpp 
 OBJS=$(SRC:.cpp=.o)
 CP_FLAGS= -Wall -Wextra -Werror -std=c++98
 CPP=c++
 NAME=./exec
-HEADER=Animal.hpp Cat.hpp Dog.hpp
-%.o:%.cpp
+HEADER=Bureaucrat.hpp Form.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
+%.o:%.cpp 
 	$(CPP) $(CP_FLAGS) -c $< -o $@
 
 all:$(NAME)

@@ -3,14 +3,14 @@
 // Constructors
 Animal::Animal()
 {
-	this->type = "ordinary animal";
 	std::cout << "\e[0;33mDefault Constructor called of Animal\e[0m" << std::endl;
+	this->type = "animal";
 }
 
 Animal::Animal(const Animal &copy)
 {
-	(void) copy;
 	std::cout << "\e[0;33mCopy Constructor called of Animal\e[0m" << std::endl;
+	this->type = copy.type; 
 }
 
 
@@ -24,7 +24,7 @@ Animal::~Animal()
 // Operators
 Animal & Animal::operator=(const Animal &assign)
 {
-	(void) assign;
+	this->type = assign.type ;
 	return *this;
 }
 

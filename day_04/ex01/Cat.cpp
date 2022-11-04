@@ -12,7 +12,7 @@ Cat::Cat(const Cat &copy):Animal ()
 {
 	std::cout << "\e[0;32mCopy Constructor called of Cat\e[0m" << std::endl;
 	this->type = copy.type;
-	this->brain = new Brain ();
+	this->brain = Brain (copy.brain);
 }
 
 
@@ -34,4 +34,9 @@ Cat & Cat::operator=(const Cat &assign)
 void Cat::makeSound (void) const 
 {
 	std::cout << "meyoooooooow" << std::endl;
+}
+
+std::string Animal::getType (void) const
+{
+	return (this->type);
 }

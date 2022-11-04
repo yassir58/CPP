@@ -31,3 +31,8 @@ void Dog::makeSound (void) const
 {
 	std::cout << "woof woof" << std::endl;
 }
+
+std::string Dog::getType (void) const
+{
+	return (this->type);
+}

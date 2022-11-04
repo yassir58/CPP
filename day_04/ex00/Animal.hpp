@@ -20,7 +20,7 @@ class Animal
 		Animal & operator=(const Animal &assign);
 		// member functions
 		virtual void makeSound (void) const;
-		std::string getType (void) const;
+		virtual std::string getType (void) const;
 		
 	private:
 		

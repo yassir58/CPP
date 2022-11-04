@@ -15,11 +15,9 @@ class Brain
 		~Brain();
 
 		Brain &		operator=( Brain const & rhs );
+		std::string getIdea (int indx) const;
 
-	private:
-
+	static  const int count = 100 ;
 };
-
-std::ostream &			operator<<( std::ostream & o, Brain const & i );
 
 #endif /* *********************************************************** BRAIN_H */
