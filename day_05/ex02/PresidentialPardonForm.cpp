@@ -36,11 +36,13 @@ void PresidentialPardonForm::execute (Bureaucrat const &executor) const
 {
 	if (this->checkIfSigned () == true)
 	{
-		if (executor.getGrade() < this->getExecuteGrade())
+		if (executor.getGrade() <= this->getExecuteGrade())
 		{
 			std::cout << this->__target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 		}
 		else
 			throw this->tooLow;	
 	}
+	else
+		std::cout << "Form is not signed " << std::endl;
 }

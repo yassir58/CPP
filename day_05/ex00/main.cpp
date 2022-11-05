@@ -8,6 +8,8 @@ int main ()
 	Bureaucrat test("mark schnizelnazi", 1);
 	std::cout << test;
 
+	std::cout << "name  : " << test.getName() << std::endl;
+	std::cout << "grade : " << test.getGrade() << std::endl;
 	try 
 	{
 		test.decrementGrade ();
@@ -15,19 +17,21 @@ int main ()
 	catch (std::exception &xc)
 	{
 		std::cout << xc.what () << std::endl;
-		std::cout << "trying to decrement grade" << std::endl;
+		std::cout << "trying to decrement grade failed" << std::endl;
 	}
 	std::cout << test;
 
 	try 
 	{
+		std::cout << "grade : " << test.getGrade() << std::endl;
 		test.incrementGrade ();
 	}
 	catch (std::exception &xc)
 	{
+		std::cout << "trying to increment grade failed" << std::endl;
 		std::cout << xc.what () << std::endl;
-		std::cout << "trying to increment grade" << std::endl;
 	}
+	std::cout << "grade : " << test.getGrade() << std::endl;
 	std::cout << test;
 	try 
 	{
@@ -35,8 +39,8 @@ int main ()
 	}
 	catch (std::exception &xc)
 	{
+		std::cout << "trying to increment grade failed" << std::endl;
 		std::cout << xc.what () << std::endl;
-		std::cout << "trying to increment grade" << std::endl;
 	}
 	std::cout << test;
 
@@ -47,7 +51,7 @@ int main ()
 	catch (std::exception &xc)
 	{
 		std::cout << xc.what () << std::endl;
-		std::cout << "caught in constructor" << std::endl;
+		std::cout << "instantiate a Bureaucrat using an invalid grade" << std::endl;
 	}
 
 }

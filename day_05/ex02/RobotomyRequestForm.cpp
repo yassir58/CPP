@@ -39,7 +39,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	
 	if (this->checkIfSigned () == true)
 	{
-		if (executor.getGrade() < this->getExecuteGrade())
+		if (executor.getGrade() <= this->getExecuteGrade())
 		{
 			if (count_times % 2 == 0)
 			{
@@ -52,6 +52,8 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		else
 			throw this->tooLow;
 	}
+	else
+		std::cout << "Form is not signed " << std::endl;
 	if (count_times < 100)
 		count_times++;
 	else if (count_times == 100)

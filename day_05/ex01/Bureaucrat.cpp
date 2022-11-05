@@ -68,12 +68,12 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat &assign)
 
 const char * GradeTooHighException::what (void) const throw ()
 {
-	return (" ----- Grade too high ----- ");
+	return ("\e[0;31m<< Grade too high >>\e[0m");
 }
 
 const char * GradeTooLowException::what (void) const throw ()
 {
-	return (" ----- Grade too low ----- ");
+	return ("\e[0;31m << Grade too low >> \e[0m");
 }
 
 
@@ -84,11 +84,17 @@ std::ostream& operator << (std::ostream &o, Bureaucrat const &obj)
 }
 
 
-void Bureaucrat::signForm (std::string name, bool sign)
+void Bureaucrat::signForm (Form &form)
 {
-	if (sign)
-		std::cout << this->getName () << " signed " << name << std::endl;
-	else 
-		std::cout << this->getName () << " couldn't sign " << name << " because grade was to low" << std::endl;
+	try 
+	{
+		form.beSigned(*this);
+	}
+	catch (std::exception &exc)
+	{
+		std::cout << this->getName () << " Couldn't sign " << form.getName () << " because " << exc.what() << std::endl;
+		return; 
+	}
+	std::cout << this->getName () << " signed " << form.getName () << std::endl;
 }
 

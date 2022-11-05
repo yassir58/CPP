@@ -3,8 +3,8 @@ OBJS=$(SRC:.cpp=.o)
 CP_FLAGS= -Wall -Wextra -Werror -std=c++98
 CPP=c++
 NAME=./exec
-HEADER=Animal.hpp Cat.hpp Dog.hpp
-%.o:%.cpp
+HEADER=Animal_A.hpp Cat.hpp Dog.hpp
+%.o:%.cpp $(HEADER)
 	$(CPP) $(CP_FLAGS) -c $< -o $@
 
 all:$(NAME)

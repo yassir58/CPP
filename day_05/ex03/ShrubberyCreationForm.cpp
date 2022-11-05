@@ -36,7 +36,7 @@ void ShrubberyCreationForm::execute (Bureaucrat const & executor) const
 
 	if (this->checkIfSigned () == true)
 	{
-		if (executor.getGrade() < this->getExecuteGrade())
+		if (executor.getGrade() <= this->getExecuteGrade())
 		{
 			out_file.open(this->__target + "_shrubbery", std::ios::out);
 			if (!out_file)
@@ -57,5 +57,7 @@ void ShrubberyCreationForm::execute (Bureaucrat const & executor) const
 		}
 		else
 			throw this->tooLow;
-	}	
+	}
+	else
+		std::cout << "Form is not signed " << std::endl;	
 }

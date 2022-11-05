@@ -68,13 +68,14 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat &assign)
 
 const char * GradeTooHighException::what (void) const throw ()
 {
-	return (" ----- Grade too high ----- ");
+	return ("\e[0;31m<< Grade too high >>\e[0m");
 }
 
 const char * GradeTooLowException::what (void) const throw ()
 {
-	return (" ----- Grade too low ----- ");
+	return ("\e[0;31m << Grade too low >> \e[0m");
 }
+
 
 
 std::ostream& operator << (std::ostream &o, Bureaucrat const &obj)

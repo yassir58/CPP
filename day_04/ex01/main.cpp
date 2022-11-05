@@ -25,10 +25,11 @@ int main (void)
         else
             animals[i] = new Dog ();
     }
-
+	// system ("leaks exec");
     for (int i = 0; i < 10;i++)
     {
         animals[i]->makeSound ();
         delete animals[i];
     }
-}
+// 	while (1);
+	}

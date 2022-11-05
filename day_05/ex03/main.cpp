@@ -3,80 +3,61 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 
 
 int main ()
 {
-	ShrubberyCreationForm test("test");
-	Bureaucrat br("bureacrat", 5);
-	Bureaucrat d ("bureacrat", 1);
-	Bureaucrat anotherBr("another", 148);
-	RobotomyRequestForm rb ("test2");
-	PresidentialPardonForm prd ("test3");
+	Intern a;
+	Intern b;
+	Bureaucrat br("bureaucrat", 5);
+	Bureaucrat wr("wrong", 123);
 
 
-	test.beSigned (br);
-	rb.beSigned (br);
-	prd.beSigned (d);
+	{
+		Form *fr = NULL;
 
-	try
-	{
-		test.execute (br);
-	}
-	catch (std::exception & xc)
-	{
-		std::cout << xc.what() << std::endl;
-	}
+		a.makeForm("Undefined form", "test");
+		fr = b.makeForm ("shrubbery creation", "shrubbery");
+		try 
+		{
+			fr->beSigned (br);
+		}
+		catch (std::exception &exc)
+		{
+			std::cout << "failed to sign form : " << exc.what () << std::endl;
+		}
+		br.executeForm (*fr);
+		delete fr;
+	}	
 
-	// will rise an exception
-	try 
 	{
-		test.execute (anotherBr);
-	}
-	catch (std::exception & xc)
-	{
-		std::cout << xc.what () << std::endl;
-	}
-
-	// will rise an exception
-	anotherBr.executeForm (test);
-	
-	br.executeForm (test);
-
-	try 
-	{
-		rb.execute (br);
-	}
-	catch (std::exception & xc)
-	{
-		std::cout << xc.what () << std::endl;
-	}
-	try 
-	{
-		rb.execute (br);
-	}
-	catch (std::exception & xc)
-	{
-		std::cout << xc.what () << std::endl;
+		Form *fr = b.makeForm ("robotomy request", "robotomy");
+		try 
+		{
+			fr->beSigned (br);
+		}
+		catch (std::exception &exc)
+		{
+			std::cout << "failed to sign form : " << exc.what () << std::endl;
+		}
+		br.executeForm (*fr);	
+		delete fr;	
 	}
 
-	try 
 	{
-		prd.execute (d);
-	}
-	catch (std::exception & xc)
-	{
-		std::cout << xc.what () << std::endl;
-	}
-
-	// will rise an exception
-	try 
-	{
-		prd.execute (br);
-	}
-	catch (std::exception & xc)
-	{
-		std::cout << xc.what () << std::endl;
+		Bureaucrat br("bureaucrat", 6);
+		Form *fr = b.makeForm ("presdential pardon", "presdential");
+		try 
+		{
+			fr->beSigned (br);
+		}
+		catch (std::exception &exc)
+		{
+			std::cout << "failed to sign form : " << exc.what () << std::endl;
+		}
+		br.executeForm (*fr);	
+		delete fr;	
 	}
 }

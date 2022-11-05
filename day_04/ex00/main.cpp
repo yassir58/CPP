@@ -19,6 +19,7 @@ std::cout << "type : " <<  i->getType() << " " << std::endl;
 i->makeSound(); //will output the cat sound!
 j->makeSound();
 meta->makeSound();
+// wrong sound
 wr->makeSound ();
 
 delete meta;

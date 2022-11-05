@@ -8,7 +8,14 @@ Brain::Brain()
 {
 	std::cout << "\e[0;33mBrain Constructor \e[0m" << std::endl;
 	for (int i = 0; i < 100; i++)
-		this->ideas[i] = "random idea" + i;
+		this->ideas[i] = "random idea" ;
+}
+
+Brain::Brain(std::string idea)
+{
+	std::cout << "\e[0;32mBrain Parameter Constructor \e[0m" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = "random idea : " + idea;
 }
 
 Brain::Brain( const Brain & src )
@@ -34,7 +41,9 @@ Brain::~Brain()
 
 Brain &				Brain::operator=( Brain const & rhs )
 {
-	(void)rhs;
+	std::cout << "\e[0;32mBrain copy Assignement  \e[0m" << std::endl;
+	for (int i = 0; i < Brain::count; i++)
+		this->ideas[i] = rhs.getIdea (i);
 	return *this;
 }
 

@@ -7,10 +7,12 @@
 class Brain
 {
 	private:
+		std::string idea;
 		std::string ideas[100];
 	public:
 
 		Brain();
+		Brain (std::string idea);
 		Brain( Brain const & src );
 		~Brain();
 

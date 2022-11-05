@@ -1,6 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-
+#include "Form.hpp"
 
 
 int main ()
@@ -16,6 +15,7 @@ int main ()
 
 	try
 	{
+		// exception thrown i constructor
 		Form test ("test form", 45, 200);
 	}
 	catch (std::exception &xc)
@@ -23,6 +23,7 @@ int main ()
 		std::cout << xc.what () << std::endl;
 	}
 
+	// will not throw an exception
 	try 
 	{
 		testForm.beSigned (test);
@@ -30,9 +31,10 @@ int main ()
 	catch (std::exception &xc)
 	{
 		std::cout << xc.what () << std::endl;
-	}
-	test.signForm(testForm.getName (), testForm.checkIfSigned());
+	}	
+	test.signForm(testForm);
 
+	// will throw an exception 
 	try
 	{
 		fr.beSigned (br);
@@ -41,5 +43,10 @@ int main ()
 	{
 		std::cout << xc.what () << std::endl;
 	}
-	br.signForm (fr.getName(), fr.checkIfSigned ());
+	br.signForm (fr);
+
+
+	// uncaught exception
+	//fr.beSigned (br);
+	return (0);
 }

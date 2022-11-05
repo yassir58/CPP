@@ -8,17 +8,29 @@
 
 int main ()
 {
-	ShrubberyCreationForm test("test");
 	Bureaucrat br("bureacrat", 5);
 	Bureaucrat d ("bureacrat", 1);
 	Bureaucrat anotherBr("another", 148);
-	RobotomyRequestForm rb ("test2");
+
+
+	ShrubberyCreationForm  test("test");
+	RobotomyRequestForm    rb("test2");
 	PresidentialPardonForm prd ("test3");
 
 
-	test.beSigned (br);
-	rb.beSigned (br);
-	prd.beSigned (d);
+
+
+	try 
+	{
+		test.beSigned (br);
+		rb.beSigned (br);
+		prd.beSigned (d);
+	}
+	catch (std::exception &exc)
+	{
+		std::cout << exc.what() << std::endl;
+		std::cout << "failed to sign form" << std::endl;
+	}
 
 	try
 	{

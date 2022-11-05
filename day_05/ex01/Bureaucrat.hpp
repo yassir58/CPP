@@ -14,6 +14,9 @@ class GradeTooLowException: public std::exception
 	virtual const char* what(void) const throw();
 };
 
+
+class Form;
+
 class Bureaucrat
 {
 	private:
@@ -30,7 +33,7 @@ class Bureaucrat
 		int getGrade (void) const;
 		void incrementGrade (void);
 		void decrementGrade (void);
-		void signForm (std::string name, bool sign);
+		void signForm (Form  &form);
 		
 
 		GradeTooHighException tooHigh;
