@@ -1,9 +1,9 @@
-SRC=Bureaucrat.cpp main.cpp Form.cpp
+SRC=Convert.cpp utils.cpp
 OBJS=$(SRC:.cpp=.o)
 CP_FLAGS= -Wall -Wextra -Werror -std=c++98
 CPP=c++
 NAME=./exec
-HEADER=Bureaucrat.hpp Form.hpp
+HEADER=Convert.hpp
 %.o:%.cpp $(HEADER)
 	$(CPP) $(CP_FLAGS) -c $< -o $@
 

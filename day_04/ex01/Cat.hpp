@@ -17,7 +17,7 @@ class Cat: public Animal
 		Cat(std::string idea);
 		
 		// Destructor
-		~Cat();
+		virtual ~Cat();
 		
 		// Operators
 		Cat & operator=(const Cat &assign);

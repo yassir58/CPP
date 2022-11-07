@@ -13,7 +13,7 @@ class Dog : public Animal
 		Dog(const Dog &copy);
 		
 		// Destructor
-		~Dog();
+		virtual ~Dog();
 		
 		// Operators
 		Dog & operator=(const Dog &assign);

@@ -14,7 +14,7 @@ class Cat: public Animal
 		Cat(const Cat &copy);
 		
 		// Destructor
-		~Cat();
+		virtual ~Cat();
 		
 		// Operators
 		Cat & operator=(const Cat &assign);
