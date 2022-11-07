@@ -6,7 +6,7 @@
 
 class Animal_A
 {
-	private:
+	protected:
 		std::string type;
 	public:
 		// Constructors

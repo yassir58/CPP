@@ -3,8 +3,8 @@
 // Constructors
 Animal::Animal()
 {
-	this->type = "ordinary animal";
 	std::cout << "\e[0;33mDefault Constructor called of Animal\e[0m" << std::endl;
+	this->type = "Animal";
 }
 
 Animal::Animal(const Animal &copy)

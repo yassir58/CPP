@@ -1,15 +1,16 @@
 #include "WrongCat.hpp"
 
 // Constructors
-WrongCat::WrongCat():type("WrongCat")
+WrongCat::WrongCat()
 {
 	std::cout << "\e[0;33mDefault Constructor called of WrongCat\e[0m" << std::endl;
+	this->type = "Cat";
 }
 
 WrongCat::WrongCat(const WrongCat &copy):WrongAnimal ()
 {
-	this->type = copy.type ;
 	std::cout << "\e[0;33mCopy Constructor called of WrongCat\e[0m" << std::endl;
+	this->type = copy.type ;
 }
 
 

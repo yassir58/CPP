@@ -11,12 +11,12 @@ Brain::Brain()
 		this->ideas[i] = "random idea" ;
 }
 
-Brain::Brain(std::string idea)
-{
-	std::cout << "\e[0;32mBrain Parameter Constructor \e[0m" << std::endl;
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = "random idea : " + idea;
-}
+// Brain::Brain(std::string idea)
+// {
+// 	std::cout << "\e[0;32mBrain Parameter Constructor \e[0m" << std::endl;
+// 	for (int i = 0; i < 100; i++)
+// 		this->ideas[i] = idea;
+// }
 
 Brain::Brain( const Brain & src )
 {

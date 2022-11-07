@@ -1,15 +1,16 @@
 #include "Dog.hpp"
 
 // Constructors
-Dog::Dog():type ("Dog")
+Dog::Dog()
 {
 	std::cout << "\e[0;33mDefault Constructor called of Dog\e[0m" << std::endl;
+	this->type = "Dog";
 }
 
 Dog::Dog(const Dog &copy):Animal ()
 {
-	this->type = copy.type;
 	std::cout << "\e[0;33mCopy Constructor called of Dog\e[0m" << std::endl;
+	this->type = copy.type;
 }
 
 

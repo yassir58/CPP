@@ -8,8 +8,6 @@
 
 class Dog : public Animal_A
 {
-	private:
-		std::string type;
 	public:
 		// Constructors
 		Dog();

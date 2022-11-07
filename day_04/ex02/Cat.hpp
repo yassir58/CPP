@@ -8,8 +8,6 @@
 
 class Cat: public Animal_A
 {
-	private:
-		std::string type;
 	public:
 		// Constructors
 		Cat();

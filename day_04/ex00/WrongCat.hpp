@@ -7,8 +7,6 @@
 
 class WrongCat: public WrongAnimal
 {
-	private:
-		std::string type;
 	public:
 		// Constructors
 		WrongCat();
