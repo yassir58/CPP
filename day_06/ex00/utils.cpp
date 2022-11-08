@@ -1,6 +1,5 @@
 #include "Convert.hpp"
 
-
 int checkOverflow (std::string arg, int flag)
 {
 	double test;
@@ -140,7 +139,7 @@ void handleInt (std::string arg)
 
 	s << arg;
 	s >> iValue;
-	if (!checkOverflow(arg, CHAR) || !!checkUnderflow(arg, CHAR))
+	if (!checkOverflow(arg, CHAR))
 		std::cout << "char : impossible " << std::endl;
 	else
 	{
@@ -155,7 +154,7 @@ void handleInt (std::string arg)
 	else
 		std::cout << "int : " << iValue << std::endl;
 	fValue = static_cast<float>(iValue);
-	std::cout << "float : " << fValue << std::endl;
+	std::cout << "float : " << fValue << "f" <<  std::endl;
 	dValue = static_cast<double>(iValue);
 	std::cout << "double : " << dValue << std::endl;
 }
@@ -170,7 +169,7 @@ void handleDouble (std::string arg)
 
 	s << arg;
 	s >> dValue;
-	if (!checkOverflow(arg, CHAR) || !checkUnderflow(arg, CHAR))
+	if (!checkOverflow(arg, CHAR))
 		std::cout << "char : impossible " << std::endl;
 	else
 	{
@@ -193,7 +192,7 @@ void handleDouble (std::string arg)
 	else
 	{
 		fValue = static_cast<float>(dValue);
-		std::cout << "float : " << fValue << std::endl;
+		std::cout << "float : " << fValue << "f" <<  std::endl;
 	}
 	std::cout << "double : " << dValue << std::endl;
 }
@@ -206,9 +205,11 @@ void handleFloat (std::string arg)
 	double dValue;
 	std::stringstream s;
 
+	arg.erase(arg.find ('f'));
 	s << arg;
 	s >> fValue;
-	if (!checkOverflow(arg, CHAR) || !checkUnderflow(arg, CHAR))
+	std::cout << "< " << fValue << "  >" << std::endl;
+	if (!checkOverflow(arg, CHAR))
 		std::cout << "char : impossible " << std::endl;
 	else
 	{
@@ -218,20 +219,56 @@ void handleFloat (std::string arg)
 		else
 			std::cout << "char : Non displayable " << std::endl;
 	}
-	if (!checkOverflow(arg, INT) || !checkUnderflow(arg, INT))
+	if (!checkOverflow(arg, INT))
 		std::cout << "int : impossible " << std::endl;
 	else
 	{
 		iValue = static_cast<int>(fValue);
 		std::cout << "int : " << iValue << std::endl;
 	}
-	if (!checkOverflow (arg, FLOAT) || !checkUnderflow(arg, FLOAT))
+	if (!checkOverflow (arg, FLOAT))
 		std::cout << "float : impossible " << std::endl;
 	else
 	{
 		fValue = static_cast<float>(fValue);
-		std::cout << "float : " << fValue << std::endl;
+		std::cout << "float : " << fValue << "f" <<  std::endl;
 	}
 	dValue = static_cast<double>(fValue);
 	std::cout << "double : " << dValue << std::endl;
+}
+
+
+int countPrecision(std::string arg)
+{
+	size_t indx = 0;
+	int count  = 0;
+	int i = 0;
+
+	indx = arg.find ('.');
+	if (indx == std::string::npos)
+		return (0);
+	i = indx + 1;
+	while (arg[i])
+	{
+		i++;
+		count++;
+	}
+	return (count);
+}
+
+void handlePseudo (std::string arg)
+{
+	std::cout << "char : impossibe " << std::endl;
+	std::cout << "int : impossibe " << std::endl;
+	if (arg.find("ff") != std::string::npos || arg.find ("nanf") != std::string::npos)
+	{
+		std::cout << "float : " << arg << std::endl; 
+		arg.pop_back (); 
+		std::cout << "double : " << arg << std::endl;
+	}
+	else
+	{
+		std::cout << "float : " << arg << std::endl; 
+		std::cout << "double : " << arg << std::endl;
+	}
 }

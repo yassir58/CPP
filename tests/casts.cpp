@@ -102,31 +102,29 @@ int main () {
   //   cout << dp->getSecret () << endl;
 
   
-  Base b;
+	Base b;
 	Derived d;
-  Base &rf = b;
-  Derived &rdf = d;
+	Base &rf = b;
+	Derived &rdf = d;
 
 	Base *pb = dynamic_cast<Base*>(&d);	
-  Base *pbd = dynamic_cast<Base*>(&rdf);	// #1
-  pb->vf ();
-  pbd->vf ();
+	Base &pbd = dynamic_cast<Base&>(rdf);	// #1
+
+  	pb->vf ();
+  	pbd.vf ();
 	Derived *pd = dynamic_cast<Derived*>(&b); 	// #2
-  if (pd == NULL)
-    cout << "dynamic cast returned NULL" << endl;
-  Derived *dp = dynamic_cast<Derived*>(&rf);
-  if (dp == NULL)
-     cout << "dynamic cast returned NULL" << endl;
-  typeid (dp) == typeid (&d) ? cout << "the same"<< endl : cout << "not the same";
+	if (pd == NULL)
+    	cout << "dynamic cast returned NULL" << endl;
 
-  cout << "checking derived class type " << endl;
-
-  
-
-  if (typeid (b) == typeid (pd))
-    cout << "same type " << endl;
-  else
-    cout << "not the same type" << endl;
+	try
+	{
+  		Derived &dp = dynamic_cast<Derived&>(rf);
+		(void)dp;
+	}
+	catch (std::bad_cast)
+	{
+		std::cout << "bad cast !" << std::endl;
+	}
 
   return 0;
 }
