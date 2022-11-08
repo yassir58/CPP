@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <sstream>
+#include <limits>
 
 enum types {CHAR,INT, FLOAT, DOUBLE, PSEUDO, INVALID};
 

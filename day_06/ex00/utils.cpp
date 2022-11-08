@@ -1,5 +1,62 @@
 #include "Convert.hpp"
 
+
+int checkOverflow (std::string arg, int flag)
+{
+	double test;
+	std::stringstream s;
+	int imax = std::numeric_limits<int>::max ();
+	int cmax = std::numeric_limits<char>::max ();
+	float fmax  = std::numeric_limits<float>::max ();
+
+	s << arg;
+	s >> test;
+	if (flag == INT)
+	{
+		if (test > imax)
+			return (0);
+	}
+	if (flag == CHAR)
+	{
+		if (test > cmax)
+			return (0);
+	}
+	if (flag == FLOAT)
+	{
+		if (test > fmax)
+			return (0);
+	}
+	return (1);
+}
+
+int checkUnderflow (std::string arg, int flag)
+{
+	double test;
+	std::stringstream s;
+	int imin = std::numeric_limits<int>::min ();
+	int cmin = std::numeric_limits<char>::min ();
+	float fmin  = std::numeric_limits<float>::min ();
+
+	s << arg;
+	s >> test;
+	if (flag == INT)
+	{
+		if (test < imin)
+			return (0);
+	}
+	if (flag == CHAR)
+	{
+		if (test < cmin)
+			return (0);
+	}
+	if (flag == FLOAT)
+	{
+		if (test < fmin)
+			return (0);
+	}
+	return (1);
+}
+
 int validateFloat (std::string arg, int flag)
 {
 	int count = 0 ;
@@ -65,96 +122,116 @@ int getType (std::string arg)
 		if (!validateFloat(arg, DOUBLE))
 			return (INVALID);
 	}
+	if (flag == INT)
+	{
+		if (!checkOverflow (arg, INT) || !checkUnderflow (arg, INT))	
+			flag = DOUBLE;
+	}
 	return (flag);
 }
 
-
-void  handleInt(std::string arg)
-{
-	int iValue;
-
-	try
-	{
-		iValue = std::stoi(arg);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "int: impossible" << '\n';
-		return;
-	}
-	std::cout << "int: " << iValue << std::endl;
-}
-
-void handlChar (std::string arg)
+void handleInt (std::string arg)
 {
 	char cValue;
 	int iValue;
+	float fValue;
+	double dValue;
+	std::stringstream s;
 
-	
-	try
-	{
-		iValue = std::stoi(arg);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "char: impossible" << '\n';
-		return;
-	}
-	if (iValue > 32 && iValue < 127)
-	{
-		cValue = iValue;
-		std::cout << "char: '" << cValue << "'" << std::endl;
-	}
+	s << arg;
+	s >> iValue;
+	if (!checkOverflow(arg, CHAR) || !!checkUnderflow(arg, CHAR))
+		std::cout << "char : impossible " << std::endl;
 	else
-		std::cout << "char: Non displayable" << std::endl;
+	{
+		cValue = static_cast<char>(iValue);
+		if (cValue > 32 && cValue < 127)
+			std::cout << "char : " << cValue << std::endl;
+		else
+			std::cout << "char : Non displayable " << std::endl;
+	}
+	if (!checkOverflow(arg, INT) || !checkUnderflow(arg, INT))
+		std::cout << "int : impossible " << std::endl;
+	else
+		std::cout << "int : " << iValue << std::endl;
+	fValue = static_cast<float>(iValue);
+	std::cout << "float : " << fValue << std::endl;
+	dValue = static_cast<double>(iValue);
+	std::cout << "double : " << dValue << std::endl;
 }
 
+void handleDouble (std::string arg)
+{
+	char cValue;
+	int iValue;
+	float fValue;
+	double dValue;
+	std::stringstream s;
+
+	s << arg;
+	s >> dValue;
+	if (!checkOverflow(arg, CHAR) || !checkUnderflow(arg, CHAR))
+		std::cout << "char : impossible " << std::endl;
+	else
+	{
+		cValue = static_cast<char>(dValue);
+		if (cValue > 32 && cValue < 127)
+			std::cout << "char : " << cValue << std::endl;
+		else
+			std::cout << "char : Non displayable " << std::endl;
+	}
+	if (!checkOverflow(arg, INT) || !checkUnderflow(arg, INT))
+		std::cout << "int : impossible " << std::endl;
+	else
+	{
+		iValue = static_cast <int> (dValue);
+		std::cout << "int : " << iValue << std::endl;
+	}
+	
+	if (!checkOverflow (arg, FLOAT) || !checkUnderflow(arg, CHAR))
+		std::cout << "float : impossible " << std::endl;
+	else
+	{
+		fValue = static_cast<float>(dValue);
+		std::cout << "float : " << fValue << std::endl;
+	}
+	std::cout << "double : " << dValue << std::endl;
+}
 
 void handleFloat (std::string arg)
 {
-	float fValue = 0;
-
-	if (getType (arg) == PSEUDO)
-	{
-			std::string a = std::to_string(std::stof(arg));
-			std::cout <<"float: " << a.append("f") << std::endl;
-			return ;	
-	}
-	try
-	{
-		fValue = std::stof(arg);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "float: impossible" << '\n';
-		return;
-	}
-	
-	std::cout << "float: " << fValue ;
-	if (getType (arg) == FLOAT || getType (arg) == DOUBLE)
-	{
-		std::cout << "f";
-	}
-	else if (getType (arg) == INT)
-		std::cout << ".0f";
-	std::cout << std::endl;
-}
-
-void handleDouble(std::string arg)
-{
+	char cValue;
+	int iValue;
+	float fValue;
 	double dValue;
+	std::stringstream s;
 
-	try
+	s << arg;
+	s >> fValue;
+	if (!checkOverflow(arg, CHAR) || !checkUnderflow(arg, CHAR))
+		std::cout << "char : impossible " << std::endl;
+	else
 	{
-		dValue = std::stod(arg);
+		cValue = static_cast<char>(fValue);
+		if (cValue > 32 && cValue < 127)
+			std::cout << "char : " << cValue << std::endl;
+		else
+			std::cout << "char : Non displayable " << std::endl;
 	}
-	catch(const std::exception& e)
+	if (!checkOverflow(arg, INT) || !checkUnderflow(arg, INT))
+		std::cout << "int : impossible " << std::endl;
+	else
 	{
-		std::cerr << "double: impossible" << '\n';
-		return;
+		iValue = static_cast<int>(fValue);
+		std::cout << "int : " << iValue << std::endl;
 	}
-	std::cout << "double: " << dValue ;
-	if (getType (arg) == INT)
-		std::cout << ".0";
-	std::cout << std::endl;
+	if (!checkOverflow (arg, FLOAT) || !checkUnderflow(arg, FLOAT))
+		std::cout << "float : impossible " << std::endl;
+	else
+	{
+		fValue = static_cast<float>(fValue);
+		std::cout << "float : " << fValue << std::endl;
+	}
+	dValue = static_cast<double>(fValue);
+	std::cout << "double : " << dValue << std::endl;
 }
