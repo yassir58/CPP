@@ -11,12 +11,7 @@ Brain::Brain()
 		this->ideas[i] = "random idea" ;
 }
 
-// Brain::Brain(std::string idea)
-// {
-// 	std::cout << "\e[0;32mBrain Parameter Constructor \e[0m" << std::endl;
-// 	for (int i = 0; i < 100; i++)
-// 		this->ideas[i] = idea;
-// }
+
 
 Brain::Brain( const Brain & src )
 {
@@ -51,4 +46,10 @@ Brain &				Brain::operator=( Brain const & rhs )
 std::string Brain::getIdea (int indx) const
 {
 	return (this->ideas[indx]);
+}
+
+void Brain::setIdea (std::string idea, int indx)
+{
+	if (indx <= 99)
+		this->ideas[indx] = idea;
 }

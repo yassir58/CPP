@@ -21,8 +21,8 @@ Dog::Dog(const Dog &copy):Animal ()
 // Destructor
 Dog::~Dog()
 {
-	std::cout << "\e[0;31mDestructor called of Dog\e[0m" << std::endl;
 	delete this->brain;
+	std::cout << "\e[0;31mDestructor called of Dog\e[0m" << std::endl;
 }
 
 
@@ -30,6 +30,10 @@ Dog::~Dog()
 Dog & Dog::operator=(const Dog &assign)
 {
 	this->type = assign.type;
+	if (this->brain)
+		delete this->brain;
+	this->brain = new Brain ();
+	*this->brain = *assign.brain ;
 	return *this;
 }
 
@@ -43,8 +47,8 @@ std::string Dog::getType (void) const
 	return (this->type);
 }
 
-// void Dog::printIdeas (void)  const 
-// {
-// 	for (int i = 0;i < this->brain->count ; i++)
-// 		std::cout << this->brain->getIdea(i);
-// }
+
+Brain *Dog::getBrain (void) const
+{
+	return (this->brain);
+}

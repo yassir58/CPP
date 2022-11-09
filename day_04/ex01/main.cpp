@@ -16,8 +16,8 @@ int main (void)
 	Dog C = Dog ();
 	Dog D = Dog (C);
 	// example of shallow copy
-	// WrongCat i = WrongCat ();
-	// WrongCat j = WrongCat (i);
+	//WrongCat i = WrongCat ();
+	//WrongCat j = WrongCat (i);
 
 
     for  (int i = 0; i < 10;i++)
@@ -32,13 +32,16 @@ int main (void)
         animals[i]->makeSound ();
         delete animals[i];
     }
+	{
+		Cat A;
+		Cat B(A);
+		Dog C;
+		Dog D;
 
-	// {
-	// 	Cat A ("hello world");
-	// 	Cat B = Cat (A);
-
-	// 	A.printIdeas ();
-	// 	std::cout << "________________________________________" << std::endl;
-	// 	B.printIdeas ();
-	// }
+		C.getBrain()->setIdea ("hello world", 5);
+		std::cout << " C idea : " << C.getBrain()->getIdea(5) << std::endl;
+		D = C;
+		std::cout << " D idea : " << D.getBrain()->getIdea(5) << std::endl;
+	}
+	system ("leaks exec");
 	}

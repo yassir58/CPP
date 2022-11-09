@@ -14,7 +14,6 @@ class Cat: public Animal
 		// Constructors
 		Cat();
 		Cat(const Cat &copy);
-		Cat(std::string idea);
 		
 		// Destructor
 		virtual ~Cat();
@@ -23,7 +22,7 @@ class Cat: public Animal
 		Cat & operator=(const Cat &assign);
 		void makeSound (void) const ;
 		std::string getType (void) const;
-		void printIdeas (void) const;
+		Brain *getBrain (void) const;
 	
 };
 

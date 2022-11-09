@@ -13,13 +13,11 @@ Animal::Animal(const Animal &copy)
 	this->type = copy.type; 
 }
 
-
 // Destructor
 Animal::~Animal()
 {
 	std::cout << "\e[0;31mDestructor called of Animal\e[0m" << std::endl;
 }
-
 
 // Operators
 Animal & Animal::operator=(const Animal &assign)

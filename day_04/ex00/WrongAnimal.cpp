@@ -8,8 +8,8 @@ WrongAnimal::WrongAnimal()
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
-	this->type = copy.type;
 	std::cout << "\e[0;33mCopy Constructor called of WrongAnimal\e[0m" << std::endl;
+	this->type = copy.type;
 }
 
 

@@ -7,7 +7,6 @@
 
 class Cat: public Animal
 {
-	
 	public:
 		// Constructors
 		Cat();

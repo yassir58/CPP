@@ -1,9 +1,10 @@
 #include "WrongCat.hpp"
 
 // Constructors
-WrongCat::WrongCat():type("WrongCat")
+WrongCat::WrongCat()
 {
 	std::cout << "\e[0;33mDefault Constructor called of WrongCat\e[0m" << std::endl;
+	this->type = "Wrong Cat";
 	this->brain =  new Brain ();
 }
 

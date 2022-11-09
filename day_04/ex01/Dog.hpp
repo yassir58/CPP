@@ -22,8 +22,7 @@ class Dog : public Animal
 		Dog & operator=(const Dog &assign);
 		void makeSound (void) const;
 		std::string getType (void) const;
-		//void printIdeas (void) const;
-		
+		Brain *getBrain (void) const;
 };
 
 #endif

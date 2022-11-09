@@ -21,7 +21,6 @@ class Animal
 		// member functions
 		virtual void makeSound (void) const;
 		std::string getType (void) const;
-		//virtual void printIdeas (void) const = 0;
 		
 	private:
 		

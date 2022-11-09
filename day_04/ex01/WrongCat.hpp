@@ -10,7 +10,6 @@
 class WrongCat: public WrongAnimal
 {
 	private:
-		std::string type;
 		Brain *brain;
 	public:
 		// Constructors
