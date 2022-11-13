@@ -1,6 +1,6 @@
 SRC=main.cpp
 OBJS=$(SRC:.cpp=.o)
-CP_FLAGS= -Wall -Wextra -Werror -std=c++98
+CP_FLAGS= -Wall -Wextra -Werror -std=c++98 -fsanitize=address 
 CPP=c++
 NAME=./exec
 HEADER=Array.hpp
