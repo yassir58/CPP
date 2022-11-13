@@ -8,7 +8,7 @@ WrongAnimal::WrongAnimal()
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
-	(void) copy;
+	this->type  = copy.type;
 	std::cout << "\e[0;33mCopy Constructor called of WrongAnimal\e[0m" << std::endl;
 }
 
@@ -23,7 +23,7 @@ WrongAnimal::~WrongAnimal()
 // Operators
 WrongAnimal & WrongAnimal::operator=(const WrongAnimal &assign)
 {
-	(void) assign;
+	this->type = assign.type;
 	return *this;
 }
 

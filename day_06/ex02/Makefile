@@ -9,7 +9,7 @@ HEADER=Base.hpp A.hpp B.hpp C.hpp
 
 all:$(NAME)
 
-$(NAME):$(OBJS) $(HEADER)
+$(NAME):$(OBJS)
 	$(CPP) $(CP_FLAGS) $(OBJS) -o $(NAME)
 
 clean:

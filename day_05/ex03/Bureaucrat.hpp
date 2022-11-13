@@ -29,6 +29,7 @@ class Bureaucrat
 
 		std::string getName (void) const;
 		int getGrade (void) const;
+		void setGrade (int grade);
 		void incrementGrade (void);
 		void decrementGrade (void);
 		void signForm (std::string name, bool sign);
@@ -36,6 +37,8 @@ class Bureaucrat
 
 		GradeTooHighException tooHigh;
 		GradeTooLowException tooLow;
+		static int const min = 150;
+		static int const max = 1;
 	
 };
 

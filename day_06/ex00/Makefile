@@ -1,6 +1,6 @@
 SRC=Convert.cpp utils.cpp
 OBJS=$(SRC:.cpp=.o)
-CP_FLAGS= -Wall -Wextra -Werror -std=c++98 -pedantic
+CP_FLAGS= -Wall -Wextra -Werror -std=c++98
 CPP=c++
 NAME=./exec
 HEADER=Convert.hpp

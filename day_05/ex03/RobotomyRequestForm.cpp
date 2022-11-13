@@ -3,25 +3,25 @@
 // Constructors
 RobotomyRequestForm::RobotomyRequestForm():__target("Default target")
 {
-	std::cout << "\e[0;33mDefault Constructor called of RobotomyRequestForm\e[0m" << std::endl;
+	// std::cout << "\e[0;33mDefault Constructor called of RobotomyRequestForm\e[0m" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):Form("Form", 72, 45), __target(target)
 {
-	std::cout << "\e[0;32mParameter Constructor called of RobotomyRequestForm\e[0m" << std::endl;
+	// std::cout << "\e[0;32mParameter Constructor called of RobotomyRequestForm\e[0m" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):__target(copy.__target)
 {
 	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of RobotomyRequestForm\e[0m" << std::endl;
+	// std::cout << "\e[0;33mCopy Constructor called of RobotomyRequestForm\e[0m" << std::endl;
 }
 
 
 // Destructor
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "\e[0;31mDestructor called of RobotomyRequestForm\e[0m" << std::endl;
+	// std::cout << "\e[0;31mDestructor called of RobotomyRequestForm\e[0m" << std::endl;
 }
 
 

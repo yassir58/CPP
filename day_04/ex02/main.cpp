@@ -20,4 +20,5 @@ int main (void)
 
 	delete i;
 	delete j;
+	// system ("leaks exec");
 }

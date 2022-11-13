@@ -3,13 +3,13 @@
 // Constructors
 B::B()
 {
-	std::cout << "\e[0;33mDefault Constructor called of B\e[0m" << std::endl;
+	// std::cout << "\e[0;33mDefault Constructor called of B\e[0m" << std::endl;
 }
 
 B::B(const B &copy)
 {
 	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of B\e[0m" << std::endl;
+	// std::cout << "\e[0;33mCopy Constructor called of B\e[0m" << std::endl;
 }
 
 

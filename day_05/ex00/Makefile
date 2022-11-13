@@ -9,7 +9,7 @@ HEADER=Bureaucrat.hpp
 
 all:$(NAME)
 
-$(NAME):$(OBJS) $(HEADER)
+$(NAME):$(OBJS)
 	$(CPP) $(CP_FLAGS) $(OBJS) -o $(NAME)
 
 clean:

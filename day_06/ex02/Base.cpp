@@ -6,13 +6,13 @@
 // Constructors
 Base::Base()
 {
-	std::cout << "\e[0;33mDefault Constructor called of Base\e[0m" << std::endl;
+	// std::cout << "\e[0;33mDefault Constructor called of Base\e[0m" << std::endl;
 }
 
 Base::Base(const Base &copy)
 {
 	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of Base\e[0m" << std::endl;
+	// std::cout << "\e[0;33mCopy Constructor called of Base\e[0m" << std::endl;
 }
 
 
@@ -34,12 +34,13 @@ Base & Base::operator=(const Base &assign)
 Base * generate(void)
 {
 	Base *obj = NULL;
+	std::string objs[3] = {"A", "B", "C"};
 	int rand  = 0;
 
 	srand (time(NULL));
 	rand  = std::rand () % 3;
 
-	std::cout << "rand : " << rand << std::endl;
+	std::cout << "generated object : " << objs[rand] << std::endl;
 	switch (rand)
 	{
 		case 0:

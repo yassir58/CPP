@@ -18,5 +18,6 @@ void	handleFloat (std::string arg);
 void	handleDouble(std::string arg);
 int		countPrecision(std::string arg);
 void	handlePseudo (std::string arg);
+void handleChar (std::string arg);
 
 #endif

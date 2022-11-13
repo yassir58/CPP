@@ -4,22 +4,24 @@
 // Constructors
 Bureaucrat::Bureaucrat():__name ("Default Bereacrat"), __grade (1)
 {
-	std::cout << "\e[0;33mDefault Constructor called of Bureaucrat\e[0m" << std::endl;
+	// std::cout << "\e[0;33mDefault Constructor called of Bureaucrat\e[0m" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string const &name, int grade):__name (name), __grade (grade)
+Bureaucrat::Bureaucrat(std::string const &name, int grade):__name (name)
 {
-	std::cout << "\e[0;32mParameterConstructor called of Bureaucrat\e[0m" << std::endl;
-	if (grade < 1)
-		throw Bureaucrat::tooLow;
-	else if (grade > 150)
+	// std::cout << "\e[0;32mParameterConstructor called of Bureaucrat\e[0m" << std::endl;
+	if (grade < Bureaucrat::max)
 		throw Bureaucrat::tooHigh;
+	else if (grade > Bureaucrat::min)
+		throw Bureaucrat::tooLow;
+	else 
+		this->__grade = grade;
 }
 
 void Bureaucrat::incrementGrade (void)
 {
-	if (this->__grade  - 1 < 1)
-		throw Bureaucrat::tooLow;
+	if (this->__grade  - 1 < Bureaucrat::max)
+		throw Bureaucrat::tooHigh;
 	else
 	{
 		this->__grade--;
@@ -28,18 +30,27 @@ void Bureaucrat::incrementGrade (void)
 
 void Bureaucrat::decrementGrade (void)
 {
-	if (this->__grade   + 1 > 150)
-		throw Bureaucrat::tooHigh;
+	if (this->__grade   + 1 > Bureaucrat::min)
+		throw Bureaucrat::tooLow;
 	else
 	{
 		this->__grade++;
 	}
 }
 
-
 int Bureaucrat::getGrade (void) const
 {
 	return (this->__grade);
+}
+
+void Bureaucrat::setGrade (int grade)
+{
+	if (grade < Bureaucrat::max)
+		throw Bureaucrat::tooHigh;
+	else if (grade > Bureaucrat::min)
+		throw Bureaucrat::tooLow;
+	else
+		this->__grade =  grade;
 }
 
 std::string Bureaucrat::getName (void) const
@@ -49,14 +60,14 @@ std::string Bureaucrat::getName (void) const
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy):__name (copy.__name)
 {
-	std::cout << "\e[0;33mCopy Constructor called of Bureaucrat\e[0m" << std::endl;
+	// std::cout << "\e[0;33mCopy Constructor called of Bureaucrat\e[0m" << std::endl;
 	this->__grade = copy.__grade;
 }
 
 // Destructor
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "\e[0;31mDestructor called of Bureaucrat\e[0m" << std::endl;
+	// std::cout << "\e[0;31mDestructor called of Bureaucrat\e[0m" << std::endl;
 }
 
 // Operators
@@ -97,4 +108,3 @@ void Bureaucrat::signForm (Form &form)
 	}
 	std::cout << this->getName () << " signed " << form.getName () << std::endl;
 }
-

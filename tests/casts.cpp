@@ -68,6 +68,27 @@ class Base {
   };
 
 class Derived : public Base { };
+class Test {};
+class Dummy {
+	// float i, j;
+};
+
+
+class AvecLeTemp {
+	int x,y;
+ 	public:
+	AvecLeTemp(){};
+ 	AvecLeTemp (int a, int b) { x=a; y=b; }
+int result() { return x+y;} 
+};
+
+class AnotherTest {
+	public:
+		operator Test ()
+		{
+			return Test();
+		}
+};
 
 int main () {
   // * * implicit type cast
@@ -106,6 +127,24 @@ int main () {
 	Derived d;
 	Base &rf = b;
 	Derived &rdf = d;
+	Base A;
+	Derived B;
+	Test C;
+	AnotherTest D;
+	// AnotherTest *Y;
+	AvecLeTemp  *p;
+	Dummy Z;
+	int *test = NULL;
+
+	test = (int*)std::malloc (10);
+	// p = (AnotherTest*)Y;
+	// difference between static cast and c-type cast
+	A = static_cast<Base>(B);
+	//C = static_cast<Test>(A);	// no conversion 
+	C = static_cast<Test>(D);
+	C = (Test)D;
+	p = (AvecLeTemp*) &Z;
+	std::cout << p->result() << std::endl;
 
 	Base *pb = dynamic_cast<Base*>(&d);	
 	Base &pbd = dynamic_cast<Base&>(rdf);	// #1

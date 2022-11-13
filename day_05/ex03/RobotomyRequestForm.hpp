@@ -9,8 +9,6 @@ class RobotomyRequestForm : public Form
 {
 	private:
 		std::string const __target;
-		// int const __signGrade;
-		// int const __executeGrade;
 	public:
 		// Constructors
 		RobotomyRequestForm();

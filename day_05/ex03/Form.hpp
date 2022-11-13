@@ -34,6 +34,8 @@ class Form
 		void beSigned (Bureaucrat const &br);
 		GradeTooHighException tooHigh;
 		GradeTooLowException tooLow;
+		static int const min = 150;
+		static int const max = 1;
 		
 	private:
 		

@@ -11,5 +11,13 @@ void iter (type arr, size_t len, void (*func)(type arg, size_t indx))
 		func(arr, i);
 	}
 }
+template <class type>
+void iter (type arr, size_t len, void (*func)(type const arg, size_t const indx) )
+{
+	for (size_t i = 0; i < len; i++)
+	{
+		func(arr, i);
+	}
+}
 
 #endif

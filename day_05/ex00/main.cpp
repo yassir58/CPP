@@ -16,8 +16,8 @@ int main ()
 	}
 	catch (std::exception &xc)
 	{
-		std::cout << xc.what () << std::endl;
 		std::cout << "trying to decrement grade failed" << std::endl;
+		std::cout << xc.what () << std::endl;
 	}
 	std::cout << A << std::endl;
 
@@ -31,8 +31,9 @@ int main ()
 		std::cout << "trying to increment grade failed" << std::endl;
 		std::cout << xc.what () << std::endl;
 	}
-	std::cout << "grade : " << A.getGrade() << std::endl;
+
 	std::cout << A << std::endl;
+
 	try 
 	{
 		A.incrementGrade ();
@@ -42,16 +43,15 @@ int main ()
 		std::cout << "trying to increment grade failed" << std::endl;
 		std::cout << xc.what () << std::endl;
 	}
-	std::cout << A << std::endl;
 
+	// invalid grade in constructor
 	try
 	{	
 		Bureaucrat random ("random", 240);
 	}
 	catch (std::exception &xc)
 	{
-		std::cout << xc.what () << std::endl;
 		std::cout << "instantiate a Bureaucrat using an invalid grade" << std::endl;
+		std::cout << xc.what () << std::endl;
 	}
-
 }

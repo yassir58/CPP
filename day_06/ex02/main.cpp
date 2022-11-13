@@ -14,5 +14,8 @@ int main ()
 	Base &ref = *test2;
 
 	identify (ref);
+	delete test;
+	delete test2;
+	// system("leaks exec");
 	return (0);
 }

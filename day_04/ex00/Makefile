@@ -9,7 +9,7 @@ HEADER=Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 
 all:$(NAME)
 
-$(NAME):$(OBJS) $(HEADER)
+$(NAME):$(OBJS)
 	$(CPP) $(CP_FLAGS) $(OBJS) -o $(NAME)
 
 clean:

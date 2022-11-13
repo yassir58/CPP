@@ -8,6 +8,12 @@ WrongCat::WrongCat()
 	this->brain =  new Brain ();
 }
 
+WrongCat::WrongCat (WrongCat &copy)
+{
+	this->type = copy.type;
+	this->brain = copy.brain;
+}
+
 // Destructor
 WrongCat::~WrongCat()
 {
@@ -19,6 +25,9 @@ WrongCat::~WrongCat()
 WrongCat & WrongCat::operator=(const WrongCat &assign)
 {
 	this->type = assign.type;
+	if (this->brain)
+		delete brain;
+	this->brain = assign.brain;
 	return *this;
 }
 

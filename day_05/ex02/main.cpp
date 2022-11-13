@@ -8,71 +8,75 @@
 
 int main ()
 {
-	Bureaucrat br("bureacrat", 5);
-	Bureaucrat d ("bureacrat", 1);
-	Bureaucrat anotherBr("another", 148);
+	Bureaucrat a("a", 5);
+	Bureaucrat d ("d", 1);
+	Bureaucrat b("b", 148);
 
 
-	ShrubberyCreationForm  test("test");
-	RobotomyRequestForm    rb("test2");
-	PresidentialPardonForm prd ("test3");
+	ShrubberyCreationForm  sh("shrubbery");
+	RobotomyRequestForm    rb("robotomy");
+	PresidentialPardonForm prd ("presdential");
 
 
 
 
 	try 
 	{
-		test.beSigned (br);
-		rb.beSigned (br);
+		sh.beSigned (a);
+		rb.beSigned (a);
 		prd.beSigned (d);
 	}
 	catch (std::exception &exc)
 	{
-		std::cout << exc.what() << std::endl;
 		std::cout << "failed to sign form" << std::endl;
+		std::cout << exc.what() << std::endl;
 	}
 
+
+	// will create shrubbery tree
 	try
 	{
-		test.execute (br);
+		sh.execute (a);
 	}
 	catch (std::exception & xc)
 	{
 		std::cout << xc.what() << std::endl;
 	}
 
-	// will rise an exception
+	// will throw an exception
 	try 
 	{
-		test.execute (anotherBr);
+		sh.execute (b);
 	}
 	catch (std::exception & xc)
 	{
 		std::cout << xc.what () << std::endl;
 	}
 
-	// will rise an exception
-	anotherBr.executeForm (test);
+	// will throw an exception
+	b.executeForm (sh);
 	
-	br.executeForm (test);
-
+	/// robotomy request 
 	try 
 	{
-		rb.execute (br);
+		rb.execute (a);
 	}
 	catch (std::exception & xc)
 	{
 		std::cout << xc.what () << std::endl;
 	}
+	
+	// robotomy request failed
 	try 
 	{
-		rb.execute (br);
+		rb.execute (a);
 	}
 	catch (std::exception & xc)
 	{
 		std::cout << xc.what () << std::endl;
 	}
 
+	// presedential pardon
 	try 
 	{
 		prd.execute (d);
@@ -82,10 +86,11 @@ int main ()
 		std::cout << xc.what () << std::endl;
 	}
 
-	// will rise an exception
+	// will throw an exception
 	try 
 	{
-		prd.execute (br);
+		Bureaucrat a("a", 8);
+		prd.execute (a);
 	}
 	catch (std::exception & xc)
 	{

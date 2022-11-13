@@ -7,7 +7,7 @@
 
 class GradeTooHighException: public std::exception 
 {
-	virtual const char* what() const throw();
+	virtual const char* what(void) const throw();
 };
 class GradeTooLowException: public std::exception 
 {
@@ -28,12 +28,15 @@ class Bureaucrat
 
 		std::string getName (void) const;
 		int getGrade (void) const;
+		void setGrade (int grd);
 		void incrementGrade (void);
 		void decrementGrade (void);
 
 
 		GradeTooHighException tooHigh;
 		GradeTooLowException tooLow;
+		static int const min = 150;
+		static int const max = 1;
 	
 };
 

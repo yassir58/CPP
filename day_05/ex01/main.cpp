@@ -4,19 +4,19 @@
 
 int main ()
 {
-	Bureaucrat test("mark schnizelnazi", 1);
-	Form  testForm("random", 5, 1);
-	Bureaucrat br("random bureaucrat", 90);
-	Form fr ("form1", 6, 8);
+	Bureaucrat a("A", 1);
+	Form  r("random", 5, 1);
+	Bureaucrat b("B", 90);
+	Form c ("C", 6, 8);
 	
-	std::cout << test;
-	std::cout << testForm ;
+	std::cout << a;
+	std::cout << r ;
 	
 
 	try
 	{
-		// exception thrown i constructor
-		Form test ("test form", 45, 200);
+		// exception thrown in constructor
+		Form a ("test form", 45, 200);
 	}
 	catch (std::exception &xc)
 	{
@@ -26,27 +26,27 @@ int main ()
 	// will not throw an exception
 	try 
 	{
-		testForm.beSigned (test);
+		r.beSigned (a);
 	}
 	catch (std::exception &xc)
 	{
 		std::cout << xc.what () << std::endl;
 	}	
-	test.signForm(testForm);
+	a.signForm(r);
 
 	// will throw an exception 
 	try
 	{
-		fr.beSigned (br);
+		c.beSigned (b);
 	}
 	catch (std::exception &xc)
 	{
 		std::cout << xc.what () << std::endl;
 	}
-	br.signForm (fr);
+	b.signForm (c);
 
 
 	// uncaught exception
-	//fr.beSigned (br);
+	//fr.beSigned (b);
 	return (0);
 }

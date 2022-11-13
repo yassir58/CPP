@@ -15,11 +15,31 @@ int main ()
 	Bureaucrat wr("wrong", 123);
 
 
+	try
+	{
+		Form *test = NULL;
+
+		test = a.makeForm ("undefined", "test");
+		test->beSigned (br);
+	}
+	catch (std::exception &exc)
+	{
+		std::cout << exc.what () << std::endl;
+	}
+
 	{
 		Form *fr = NULL;
 
-		a.makeForm("Undefined form", "test");
-		fr = b.makeForm ("shrubbery creation", "shrubbery");
+
+		try 
+		{
+			fr = b.makeForm ("shrubbery creation", "shrubbery");
+		}
+		catch (std::exception &exc)
+		{
+			std::cout << exc.what () << std::endl;
+		}
+
 		try 
 		{
 			fr->beSigned (br);
@@ -33,7 +53,16 @@ int main ()
 	}	
 
 	{
-		Form *fr = b.makeForm ("robotomy request", "robotomy");
+		Form *fr = NULL;
+		try
+		{
+			fr = b.makeForm ("robotomy request", "robotomy");
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
 		try 
 		{
 			fr->beSigned (br);
@@ -46,9 +75,36 @@ int main ()
 		delete fr;	
 	}
 
+	/// will throw an exception
 	{
 		Bureaucrat br("bureaucrat", 6);
 		Form *fr = b.makeForm ("presdential pardon", "presdential");
+		try 
+		{
+			fr->beSigned (br);
+		}
+		catch (std::exception &exc)
+		{
+			std::cout << "failed to sign form : " << exc.what () << std::endl;
+		}
+		br.executeForm (*fr);	
+		delete fr;	
+	}
+
+	/// will not throw an exception
+	{
+		Bureaucrat br("bureaucrat", 5);
+		Form *fr = NULL;
+
+		try 
+		{
+ 			fr = b.makeForm ("presdential pardon", "presdential");
+		}
+		catch (std::exception &exc)
+		{
+			std::cout << exc.what () << std::endl;
+		}
+
 		try 
 		{
 			fr->beSigned (br);

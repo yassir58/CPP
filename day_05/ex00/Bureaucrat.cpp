@@ -3,24 +3,24 @@
 // Constructors
 Bureaucrat::Bureaucrat():name ("Default Bereuacrat"), grade (1)
 {
-	std::cout << "\e[0;33mDefault Constructor called of Bureaucrat\e[0m" << std::endl;
+	// std::cout << "\e[0;33mDefault Constructor called of Bureaucrat\e[0m" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string const &name, int grd):name (name)
 {
-	std::cout << "\e[0;32mParameter Constructor called of Bureaucrat\e[0m" << std::endl;
-	if (grd < 1)
-		throw Bureaucrat::tooLow;
-	else if (grd > 150)
+	// std::cout << "\e[0;32mParameter Constructor called of Bureaucrat\e[0m" << std::endl;
+	if (grd < Bureaucrat::max)
 		throw Bureaucrat::tooHigh;
+	else if (grd > Bureaucrat::min)
+		throw Bureaucrat::tooLow;
 	else
 		this->grade = grd ;
 }
 
 void Bureaucrat::incrementGrade (void)
 {
-	if (this->grade  - 1 < 1)
-		throw Bureaucrat::tooLow;
+	if (this->grade  - 1 < Bureaucrat::max)
+		throw Bureaucrat::tooHigh;
 	else
 	{
 		this->grade--;
@@ -29,8 +29,8 @@ void Bureaucrat::incrementGrade (void)
 
 void Bureaucrat::decrementGrade (void)
 {
-	if (this->grade   + 1 > 150)
-		throw Bureaucrat::tooHigh;
+	if (this->grade   + 1 > Bureaucrat::min)
+		throw Bureaucrat::tooLow;
 	else
 	{
 		this->grade++;
@@ -43,6 +43,16 @@ int Bureaucrat::getGrade (void) const
 	return (this->grade);
 }
 
+void Bureaucrat::setGrade (int grd)
+{
+	if (grd < Bureaucrat::max)
+		throw Bureaucrat::tooHigh;
+	else if (grd > Bureaucrat::min)
+		throw Bureaucrat::tooLow;
+	else
+		this->grade = grd ;
+}
+
 std::string Bureaucrat::getName (void) const
 {
 	return (this->name);
@@ -50,14 +60,14 @@ std::string Bureaucrat::getName (void) const
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy):name (copy.name)
 {
-	std::cout << "\e[0;33mCopy Constructor called of Bureaucrat\e[0m" << std::endl;
+	// std::cout << "\e[0;33mCopy Constructor called of Bureaucrat\e[0m" << std::endl;
 	this->grade = copy.grade;
 }
 
 // Destructor
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "\e[0;31mDestructor called of Bureaucrat\e[0m" << std::endl;
+	// std::cout << "\e[0;31mDestructor called of Bureaucrat\e[0m" << std::endl;
 }
 
 // Operators

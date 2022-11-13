@@ -72,7 +72,7 @@ int validateFloat (std::string arg, int flag)
 	for (i = 0; (i = arg.find('.', i)) != std::string::npos; i++)
 		count++;
 	i = arg.find('.');
-	if (arg[0] == '.' || count != 1 || (arg[i + 1] == 'f') || arg.back () == '.')
+	if (arg[0] == '.' || count != 1 || arg.back () == '.')
 		return (0);
 	return (1);
 }
@@ -94,6 +94,10 @@ int getType (std::string arg)
 {
 	int flag = INVALID;
 
+	if (arg.length() == 1 && !isdigit(arg.at(0)))
+	{
+		return (CHAR);
+	}
 	if (!arg.compare("-inf") || !arg.compare("+inf") || !arg.compare("nan") 
 		|| !arg.compare("-inff") || !arg.compare("+inff") || !arg.compare("nanf"))
 		flag = PSEUDO;
@@ -144,8 +148,8 @@ void handleInt (std::string arg)
 	else
 	{
 		cValue = static_cast<char>(iValue);
-		if (cValue > 32 && cValue < 127)
-			std::cout << "char : " << cValue << std::endl;
+		if (isprint(cValue))
+			std::cout << "char : '" << cValue << "'" << std::endl;
 		else
 			std::cout << "char : Non displayable " << std::endl;
 	}
@@ -154,9 +158,33 @@ void handleInt (std::string arg)
 	else
 		std::cout << "int : " << iValue << std::endl;
 	fValue = static_cast<float>(iValue);
-	std::cout << "float : " << fValue << "f" <<  std::endl;
+	std::cout << "float : " << fValue << ".0f" <<  std::endl;
 	dValue = static_cast<double>(iValue);
-	std::cout << "double : " << dValue << std::endl;
+	std::cout << "double : " << dValue << ".0" <<  std::endl;
+}
+
+
+void handleChar (std::string arg)
+{
+	char cValue;
+	int iValue;
+	float fValue;
+	double dValue;
+	std::stringstream s;
+
+	s << arg;
+	s >> cValue;
+	
+	if (isprint(cValue))
+		std::cout << "char : '" << cValue << "'" << std::endl;
+	else
+		std::cout << "char : Non displayable " << std::endl;
+	iValue = static_cast <int>(cValue);
+	std::cout << "int : " << iValue << std::endl;
+	fValue = static_cast<float>(iValue);
+	std::cout << "float : " << fValue << ".0f" <<  std::endl;
+	dValue = static_cast<double>(iValue);
+	std::cout << "double : " << dValue << ".0" <<  std::endl;
 }
 
 void handleDouble (std::string arg)
@@ -174,8 +202,8 @@ void handleDouble (std::string arg)
 	else
 	{
 		cValue = static_cast<char>(dValue);
-		if (cValue > 32 && cValue < 127)
-			std::cout << "char : " << cValue << std::endl;
+		if (isprint (cValue))
+			std::cout << "char : '" << cValue << "'" << std::endl;
 		else
 			std::cout << "char : Non displayable " << std::endl;
 	}
@@ -192,9 +220,11 @@ void handleDouble (std::string arg)
 	else
 	{
 		fValue = static_cast<float>(dValue);
-		std::cout << "float : " << fValue << "f" <<  std::endl;
+		std::cout << "float : " << fValue;
+		std::cout << ((arg.find('.') != std::string::npos) ? "f" : ".0f") <<  std::endl;
 	}
-	std::cout << "double : " << dValue << std::endl;
+	std::cout << "double : " << dValue;
+	std::cout << ((arg.find('.') != std::string::npos) ? "" : ".0") << std::endl;
 }
 
 void handleFloat (std::string arg)
@@ -203,19 +233,22 @@ void handleFloat (std::string arg)
 	int iValue;
 	float fValue;
 	double dValue;
+	int n = 0;
 	std::stringstream s;
 
+	n = arg.find('.');
+	if (arg[n + 1] == 'f')
+		n = -1;
 	arg.erase(arg.find ('f'));
 	s << arg;
 	s >> fValue;
-	std::cout << "< " << fValue << "  >" << std::endl;
 	if (!checkOverflow(arg, CHAR))
 		std::cout << "char : impossible " << std::endl;
 	else
 	{
 		cValue = static_cast<char>(fValue);
-		if (cValue > 32 && cValue < 127)
-			std::cout << "char : " << cValue << std::endl;
+		if (isprint (cValue))
+			std::cout << "char : '" << cValue << "'" << std::endl;
 		else
 			std::cout << "char : Non displayable " << std::endl;
 	}
@@ -231,10 +264,12 @@ void handleFloat (std::string arg)
 	else
 	{
 		fValue = static_cast<float>(fValue);
-		std::cout << "float : " << fValue << "f" <<  std::endl;
+		std::cout << "float : " << fValue ;
+		std::cout << ((n == -1) ? ".0f" : "f") << std::endl;
 	}
 	dValue = static_cast<double>(fValue);
-	std::cout << "double : " << dValue << std::endl;
+	std::cout << "double : " << dValue;
+	std::cout << ((n == -1) ? ".0" : "") << std::endl;	
 }
 
 
@@ -248,7 +283,7 @@ int countPrecision(std::string arg)
 	if (indx == std::string::npos)
 		return (0);
 	i = indx + 1;
-	while (arg[i])
+	while (arg[i] && arg[i] != 'f')
 	{
 		i++;
 		count++;

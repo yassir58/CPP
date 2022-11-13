@@ -14,6 +14,7 @@ class WrongCat: public WrongAnimal
 	public:
 		// Constructors
 		WrongCat();
+		WrongCat (WrongCat &copy);
 		
 		// Destructor
 		~WrongCat();
@@ -21,7 +22,6 @@ class WrongCat: public WrongAnimal
 		// Operators
 		WrongCat & operator=(const WrongCat &assign);
 		void makeSound (void) const ;
-		
 };
 
 #endif

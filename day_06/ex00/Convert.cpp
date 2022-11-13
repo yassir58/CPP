@@ -4,6 +4,12 @@
 int main (int argc, char *argv[])
 {
 	int precision = 0;
+	// float fmax  = std::numeric_limits<float>::max ();
+	// double test = static_cast<double>(fmax);
+
+	// std::cout << std::fixed ;
+	// std::cout << fmax << std::endl;
+	// std::cout << test << std::endl;
 	if (argc == 1)
 		std::cerr << "Error: Inavlid arguments !" << std::endl;
 	else
@@ -27,6 +33,8 @@ int main (int argc, char *argv[])
 				handleFloat (argv[1]);
 			else if (getType (argv[1]) == PSEUDO)
 				handlePseudo (argv[1]);
+			else
+				handleChar (argv[1]);
 		}
 	}
 	return (0);

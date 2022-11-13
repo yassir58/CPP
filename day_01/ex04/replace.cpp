@@ -31,6 +31,7 @@ std::string replace (std::string str, std::string pattern, std::string rep)
 {
 	size_t indx = 0;
 	size_t start = 0;
+	
 	while (true && pattern.compare(""))
 	{
 		indx = str.find(pattern, start);
