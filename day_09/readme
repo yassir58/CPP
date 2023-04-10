@@ -1,0 +1,11 @@
+bitcoin exchange container map
+reverse polish notation == > container stack
+pmerge => first container vector | second container list
+
+
+
+bitcoin exchage tasks 
+task 1 validate input  file ==> check for valid line format date | value 
+ check for valid date number and insert elements into a map container year-month-day 
+ check for valid price value format float or non negative integer less than 1000
+task 2 
