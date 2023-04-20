@@ -1,8 +1,9 @@
-SRCS=main.cpp BitcoinExchange.cpp
+SRCS=main.cpp RPN.cpp 
 OBJS=$(SRCS:.cpp=.o)
-EXEC=btc
+EXEC=RPN
 CC=c++
-HEADERS=BitcoinExchange.hpp
+HEADERS=RPN.hpp
+
 all: $(EXEC)
 
 
