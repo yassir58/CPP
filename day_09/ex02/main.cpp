@@ -6,33 +6,26 @@ int main (int argc , char *argv[])
 {
 
     std::vector <int> vec;
-    std::list <int> lis;
-    std::vector<int> tmp;
+    std::deque <int> deq;
+    
+    if (argc == 1)
+    {
+        std::cerr << "Invalid number of arguments !" << std::endl;
+        exit (EXIT_FAILURE);
+    }
     std::string input  = joinArray (argv);
-
     try
     {
-        std::cout << "input : " << input << std::endl;
         vec = getVector (input);
-        lis = getList (input);
-
-         // Start the clock
-        clock_t startTime = clock();
-        mergeSort (vec,vec.size() , tmp);
-        // Stop the clock
-        clock_t endTime = clock();
-
-        // Calculate the duration
-        clock_t duration = endTime - startTime;
-
-        // Print the execution time in seconds
-        std::cout << "Execution time: " << static_cast<double>(duration) / CLOCKS_PER_SEC << " seconds" << std::endl;
-
+        std::cout << "before : ";
+        printContainer (vec);
+        deq = getDeque (input);
+        sort (vec);
+        sort (deq);
         /* code */
     }
     catch(const std::exception& e)
     {
-
         std::cerr << e.what() << '\n';
     }
     
