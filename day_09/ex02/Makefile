@@ -3,7 +3,7 @@ OBJS=$(SRCS:.cpp=.o)
 EXEC=PmergeMe
 CC=c++
 HEADERS=PmergeMe.hpp
-CFLAGS= -Wall -Wextra -Werror -std=c++98 -fsanitize=leak
+CFLAGS= -Wall -Wextra -Werror -std=c++98
 
 all: $(EXEC)
 
@@ -12,7 +12,7 @@ all: $(EXEC)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(EXEC):$(OBJS)
-	$(CC) $(CFLGS) $(OBJS) -o $(EXEC)
+	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC)
 
 clean:
 	rm -rf $(OBJS)

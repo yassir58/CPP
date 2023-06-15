@@ -19,7 +19,8 @@ class InputError : public std::exception {
 
 int validateDate (std::string date);
 std::string  getClosestDate (std::string target, std::map <std::string, double>  data);
-
+void processTransactrion (std::ifstream &inputFile, std::map <std::string, double> database);
+std::map<std::string , double> getDatabase(std::ifstream &file);
 
 
 #endif
